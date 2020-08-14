@@ -14,6 +14,7 @@ set(SOURCES
 	types/meta.cpp
 	types/modules/androguard_module.cpp
 	types/modules/cuckoo_module.cpp
+	types/modules/custom_module.cpp
 	types/modules/dex_module.cpp
 	types/modules/dotnet_module.cpp
 	types/modules/elf_module.cpp
