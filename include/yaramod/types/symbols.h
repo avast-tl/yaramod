@@ -83,6 +83,16 @@ public:
 		_initArgs(args...);
 	}
 
+	// The first element of @param type is the return type, then the arguments types follow.
+	FunctionSymbol(const std::string& name, const std::vector<ExpressionType>& type)
+		: Symbol(Symbol::Type::Function, name, ExpressionType::Object), _argTypesOverloads(1)
+	{
+		assert(type.size() > 0 && "Return type must be specified.");
+		_returnType = type[0];
+		for (auto arg = ++type.begin(); arg != type.end(); ++arg)
+			_initAddArgument(*arg);
+	}
+
 	ExpressionType getReturnType() const { return _returnType; }
 	const std::vector<std::vector<ExpressionType>>& getAllOverloads() const { return _argTypesOverloads; }
 
@@ -129,8 +139,13 @@ private:
 	template <typename... Args>
 	void _initArgs(ExpressionType argType, const Args&... args)
 	{
-		_argTypesOverloads.front().push_back(argType);
+		_initAddArgument(argType);
 		_initArgs(args...);
+	}
+
+	void _initAddArgument(ExpressionType argType)
+	{
+		_argTypesOverloads.front().push_back(argType);
 	}
 
 	ExpressionType _returnType; ///< Return type of the function
