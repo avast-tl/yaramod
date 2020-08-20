@@ -6,8 +6,11 @@
 
 #pragma once
 
+#include <iostream>
+
 #include "yaramod/types/modules/module.h"
 #include "yaramod/types/modules/modules.h"
+#include "yaramod/yaramod_error.h"
 
 namespace yaramod {
 
@@ -41,11 +44,28 @@ public:
 
 		return itr->second;
 	}
+	/**
+	 * Creates the module supplied in json and adds it to known modules.
+	 *
+	 * @param name Name of the module to create
+	 * @param filePath a file containing the module structure written in json
+	 */
+	void create(std::vector<std::string>&& filePaths)
+	{
+		auto module = std::make_shared<CustomModule>(std::move(filePaths));
+		module->initialize(ImportFeatures::Basic);
+		const auto& name = module->getName();
+		if (_knownModules.count(name) > 0)
+			throw YaramodError("The module '" + name + "' has already been created.");
+		std::cout << "Created module '" << name << std::endl;
+		_knownModules.insert({name, module});
+		assert(_knownModules.count(name) == 1);
+	}
 
 private:
 	std::unordered_map<std::string, std::shared_ptr<Module>> _knownModules = {
 		{ "androguard", std::make_shared<AndroguardModule>() },
-		{ "cuckoo",     std::make_shared<CuckooModule>()     },
+		// { "cuckoo",     std::make_shared<CuckooModule>()     },
 		{ "dex",        std::make_shared<DexModule>()        },
 		{ "dotnet",     std::make_shared<DotnetModule>()     },
 		{ "elf",        std::make_shared<ElfModule>()        },

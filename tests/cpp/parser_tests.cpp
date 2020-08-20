@@ -3115,6 +3115,33 @@ rule cuckoo_module
 		$some_string = { 01 02 03 04 05 05 }
 	condition:
 		$some_string and
+		cuckoo.network.dns_lookup(/http:\/\/someone\.doingevil\.com/)
+}
+)");
+
+	EXPECT_TRUE(driver.parse(input));
+	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
+
+	const auto& rule = driver.getParsedFile().getRules()[0];
+	EXPECT_EQ(R"($some_string and cuckoo.network.dns_lookup(/http:\/\/someone\.doingevil\.com/))", rule->getCondition()->getText());
+	EXPECT_EQ("$some_string", rule->getCondition()->getFirstTokenIt()->getPureText());
+	EXPECT_EQ(")", rule->getCondition()->getLastTokenIt()->getPureText());
+
+	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
+}
+
+TEST_F(ParserTests,
+CuckooModuleAvastSpecific) {
+	prepareInput(
+R"(
+import "cuckoo"
+
+rule cuckoo_module
+{
+	strings:
+		$some_string = { 01 02 03 04 05 05 }
+	condition:
+		$some_string and
 		cuckoo.network.http_request_body(/http:\/\/someone\.doingevil\.com/)
 }
 )");

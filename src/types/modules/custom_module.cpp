@@ -19,9 +19,9 @@ using Type = Expression::Type;
 /**
  * Constructor.
  */
-CustomModule::CustomModule(const std::string& filePath)
+CustomModule::CustomModule(std::vector<std::string>&& filePaths)
 	: Module(std::string{}, ImportFeatures::Basic)
-	, _filePath(filePath)
+	, _filePaths(filePaths)
 {
 }
 
@@ -60,9 +60,20 @@ std::vector<Json> accessJsonArray(const Json& json, const std::string& key)
 	return accessJsonValue<std::vector<Json>>(json, key);
 }
 
+std::string CustomModule::getPathsAsString() const
+{
+	std::stringstream ss;
+	for (const auto& path : _filePaths)
+		ss << "'" << path << "', ";
+	auto message = ss.str();
+	message.erase(message.size()-2, 2);
+	return message;
+}
+
 void CustomModule::_addFunctions(StructureSymbol* base, const Json& json)
 {
 	assert(accessJsonString(json, "kind") == "function");
+	assert(base);
 
 	const auto& name = accessJsonString(json, "name");
 	const auto& arguments = accessJsonArray(json, "arguments");
@@ -78,11 +89,13 @@ void CustomModule::_addFunctions(StructureSymbol* base, const Json& json)
 				typeVector.emplace_back(Type::Regexp);
 			else if (t == "string")
 				typeVector.emplace_back(Type::String);
+			else if (t == "float")
+				typeVector.emplace_back(Type::Float);
 			else
 				throw YaramodError("Unknown function parameter type '" + t + "'");
 		}
 		auto function = std::make_shared<FunctionSymbol>(name, typeVector);
-		base->addAttribute(std::move(function));
+		base->addAttribute(function);
 	}
 }
 
@@ -92,17 +105,26 @@ std::shared_ptr<StructureSymbol> CustomModule::_addStruct(StructureSymbol* base,
 
 	const auto& name = accessJsonString(json, "name");
 	const auto& attributes = accessJsonArray(json, "attributes");
-	auto structure = std::make_shared<StructureSymbol>(name);
 
-	for (const auto& attr : attributes)
-		_addAttributeFromJson(structure.get(), attr);
-	if (base)
+	// Before creating new structure we first look for its existence within base attributes:	
+	std::optional<std::shared_ptr<Symbol>> existing = base ? base->getAttribute(name) : std::nullopt;
+	if (existing)
 	{
-		base->addAttribute(std::move(structure));
-		return nullptr;
+		if (existing.value()->getType() != Symbol::Type::Structure)
+			throw YaramodError("Expected " + name + " to be a struct within the module json files:\n" + getPathsAsString());
+		auto existingStructure = std::static_pointer_cast<StructureSymbol>(existing.value());
+		for (const auto& attr : attributes)
+			_addAttributeFromJson(existingStructure.get(), attr);
 	}
 	else
-		return structure;
+	{
+		auto newStructure = std::make_shared<StructureSymbol>(name);
+		for (const auto& attr : attributes)
+			_addAttributeFromJson(newStructure.get(), attr);
+		if (!base)
+			return newStructure;
+		base->addAttribute(newStructure);
+	}
 	return nullptr;
 }
 
@@ -110,15 +132,11 @@ void CustomModule::_addAttributeFromJson(StructureSymbol* base, const Json& json
 {
 	std::string kind = accessJsonString(json, "kind");
 	if (kind == "function")
-	{
-		std::cout << "Passing function" << std::endl;
 		_addFunctions(base, json);
-	}
-	if (kind == "struct")
-	{
-		std::cout << "Passing struct" << std::endl;
+	else if (kind == "struct")
 		_addStruct(base, json);
-	}
+	else
+		throw YaramodError("Unknown kind entry '" + kind + "'");
 }
 
 /**
@@ -128,14 +146,31 @@ void CustomModule::_addAttributeFromJson(StructureSymbol* base, const Json& json
  */
 bool CustomModule::initialize(ImportFeatures features)
 {
-	auto json = readJsonFile(_filePath);
+	if (_filePaths.empty())
+		throw YaramodError("No .json file supplied to initialize a module.");
 
-	if (accessJsonString(json, "kind") != "struct")
-		throw YaramodError("The first level 'kind' entry must be 'struct' in '" + _filePath + "'");
-
-	auto customStruct = _addStruct(nullptr, json);
-
-	_structure = customStruct;
+	for (const auto& filePath : _filePaths)
+	{
+		auto json = readJsonFile(filePath);
+		if (accessJsonString(json, "kind") != "struct")
+			throw YaramodError("The first level 'kind' entry must be 'struct' in " + filePath);
+		auto name = accessJsonString(json, "name");
+		if (name == std::string{})
+			throw YaramodError("Module name must be non-empty.");
+		else if (!_structure) // First iteration - need to create the structure.
+		{
+			_structure = _addStruct(nullptr, json);
+			_name = name;
+		}
+		else if (_name != name) // Throws - name of the module must be the same accross the files.
+			throw YaramodError("Module name must be the same in all files, but " + name + " != " + _name + ".\n" + getPathsAsString());
+		else // _struct already created, need only to add new attributes
+		{
+			const auto& attributes = accessJsonArray(json, "attributes");
+			for (const auto& attr : attributes)
+				_addAttributeFromJson(_structure.get(), attr);
+		}
+	}
 	return true;
 }
 
