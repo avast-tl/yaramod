@@ -1,5 +1,5 @@
 /**
- * @file src/utils/utils.h
+ * @file include/yaramod/utils/utils.h
  * @brief Declaration of utility functions.
  * @copyright (c) 2017 Avast Software, licensed under the MIT license
  */

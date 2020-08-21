@@ -35,8 +35,8 @@ TokenIt ParserDriver::emplace_back(Args&&... args)
 void ParserDriver::createCustomModules()
 {
 
-	std::vector<std::string> paths {"/home/ts/dev/yaramod/include/modules/cuckoo_module.json", "/home/ts/dev/yaramod/include/modules/cuckoo_module_avast.json", "/home/ts/dev/yaramod/include/modules/cuckoo_module_deprecated.json", "/home/ts/dev/yaramod/include/modules/cuckoo_module.json"};
-	_modules.create(std::move(paths));
+	// std::vector<std::string> paths {"/home/ts/dev/yaramod/include/modules/cuckoo_module.json", "/home/ts/dev/yaramod/include/modules/cuckoo_module_avast.json", "/home/ts/dev/yaramod/include/modules/cuckoo_module_deprecated.json", "/home/ts/dev/yaramod/include/modules/cuckoo_module.json"};
+	// _modules.create(std::move(paths));
 	// _modules.create("/home/ts/dev/yaramod/include/modules/cuckoo_module.json");
 	// _modules.create("/home/ts/dev/yaramod/include/modules/cuckoo_module_avast.json");
 	// _modules.create("/home/ts/dev/yaramod/include/modules/cuckoo_module_deprecated.json");

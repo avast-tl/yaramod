@@ -10,7 +10,6 @@
 
 #include "yaramod/types/modules/module.h"
 #include "yaramod/types/modules/modules.h"
-#include "yaramod/yaramod_error.h"
 
 namespace yaramod {
 

@@ -7,11 +7,23 @@
 #pragma once
 
 #include "yaramod/types/modules/module.h"
-#include <json/json.hpp>
+#include "yaramod/utils/json.h"
+#include "yaramod/yaramod_error.h"
 
 namespace yaramod {
 
-using Json = nlohmann::json;
+/**
+ * Represents error in module specification.
+ */
+class ModuleError : public YaramodError
+{
+public:
+	ModuleError(const std::string& errorMsg)
+		: YaramodError(errorMsg)
+	{
+	}
+	ModuleError(const ModuleError&) = default;
+};
 
 /**
  * Class representing @c cuckoo module.
@@ -19,10 +31,9 @@ using Json = nlohmann::json;
 class CustomModule : public Module
 {
 public:
-	/// @name Constructors
-	/// @param filePath a file containing the module structure written in json
+	/// @name Constructor
 	/// @{
-	CustomModule(std::vector<std::string>&& filePaths);
+	CustomModule(const std::string& name, const std::string& path);
 	/// @}
 
 	/// @name Destructor
@@ -33,6 +44,7 @@ public:
 	/// @name Initialization method
 	/// @{
 	virtual bool initialize(ImportFeatures features) override;
+	void addPath(const std::string& path);
 	/// @}
 
 	/// @name Getters
@@ -49,7 +61,8 @@ private:
 	 * @param json structure supplied in json to be created ("kind": "struct")
 	 * @param base already existing Structure which gets the new structure as its attribute
 	 */
-	void _addFunctions(StructureSymbol* base, const Json& json);
+	void _addValue(StructureSymbol* base, const nlohmann::json& json);
+	void _addFunctions(StructureSymbol* base, const nlohmann::json& json);
 	/**
 	 * Creates structure from supplied json
 	 * If base is supplied, this method returns nullptr and it either:
@@ -60,8 +73,8 @@ private:
 	 * @param json structure supplied in json to be created ("kind": "struct")
 	 * @param base already existing Structure which gets the new structure as its attribute
 	 */
-	std::shared_ptr<StructureSymbol> _addStruct(StructureSymbol* base, const Json& json);
-	void _addAttributeFromJson(StructureSymbol* base, const Json& json);
+	std::shared_ptr<StructureSymbol> _addStruct(StructureSymbol* base, const nlohmann::json& json);
+	void _addAttributeFromJson(StructureSymbol* base, const nlohmann::json& json);
 	std::vector<std::string> _filePaths;
 };
 
