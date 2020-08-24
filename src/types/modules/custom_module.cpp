@@ -92,12 +92,16 @@ void CustomModule::_addFunctions(StructureSymbol* base, const Json& json)
 	assert(base);
 
 	auto name = accessJsonString(json, "name");
+	auto return_type = stringToExpressionType(accessJsonString(json, "return_type"));
+	if (!return_type)
+		throw ModuleError("Unknown function return type type '" + accessJsonString(json, "return_type") + "'");
 
-	auto arguments = accessJsonArray(json, "variants");
-	for (const auto& typeArray : arguments)
+	auto overloads = accessJsonArray(json, "variants");
+	for (const auto& overload : overloads)
 	{
-		std::vector<ExpressionType> typeVector;
-		for (const auto& item : typeArray)
+		auto typeVector = std::vector<ExpressionType> {return_type.value()};
+		auto arguments = accessJsonArray(overload, "arguments");
+		for (const auto& item : arguments)
 		{
 			auto t = item.get<std::string>();
 			auto type = stringToExpressionType(t);

@@ -54,17 +54,26 @@ public:
 
 private:
 	/**
-	 * Creates function from supplied json and:
+	 * Creates a value from supplied json and:
+	 * adds the new value as a attribute of structure base.
+	 * When already existing attribute of base with specified name,
+	 * this method checks that the values are the same.
+	 *
+	 * @param json structure supplied in json to be created ("kind": "struct")
+	 * @param base already existing Structure which gets the new structure as its attribute
+	 */
+	void _addValue(StructureSymbol* base, const nlohmann::json& json);
+	/**
+	 * Creates a function from supplied json and:
 	 *  - adds the new function as a attribute of structure base or
 	 *  - it modifies already existing attribute of base with the same name.
 	 *
 	 * @param json structure supplied in json to be created ("kind": "struct")
 	 * @param base already existing Structure which gets the new structure as its attribute
 	 */
-	void _addValue(StructureSymbol* base, const nlohmann::json& json);
 	void _addFunctions(StructureSymbol* base, const nlohmann::json& json);
 	/**
-	 * Creates structure from supplied json
+	 * Creates a structure from supplied json
 	 * If base is supplied, this method returns nullptr and it either:
 	 *  - adds structure from json as a attribute of base or
 	 *  - it modifies already existing attribute of base with the same name.

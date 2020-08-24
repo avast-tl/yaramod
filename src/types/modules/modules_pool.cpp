@@ -23,7 +23,6 @@ ModulesPool::ModulesPool(const std::string& directory)
 		"/home/ts/dev/yaramod/include/modules/module_cuckoo.json",
 		"/home/ts/dev/yaramod/include/modules/module_cuckoo_avast.json",
 		"/home/ts/dev/yaramod/include/modules/module_cuckoo_deprecated.json",
-		"/home/ts/dev/yaramod/include/modules/module_cuckoo.json",
 		"/home/ts/dev/yaramod/include/modules/module_androguard_avast.json"
 	};
 
