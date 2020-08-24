@@ -32,16 +32,6 @@ TokenIt ParserDriver::emplace_back(Args&&... args)
 	return tokenIt;
 }
 
-void ParserDriver::createCustomModules()
-{
-
-	// std::vector<std::string> paths {"/home/ts/dev/yaramod/include/modules/cuckoo_module.json", "/home/ts/dev/yaramod/include/modules/cuckoo_module_avast.json", "/home/ts/dev/yaramod/include/modules/cuckoo_module_deprecated.json", "/home/ts/dev/yaramod/include/modules/cuckoo_module.json"};
-	// _modules.create(std::move(paths));
-	// _modules.create("/home/ts/dev/yaramod/include/modules/cuckoo_module.json");
-	// _modules.create("/home/ts/dev/yaramod/include/modules/cuckoo_module_avast.json");
-	// _modules.create("/home/ts/dev/yaramod/include/modules/cuckoo_module_deprecated.json");
-}
-
 void ParserDriver::defineTokens()
 {
 	//define global action for counting the line/character position
@@ -1666,8 +1656,6 @@ void ParserDriver::enter_state(const std::string& state)
 
 void ParserDriver::initialize()
 {
-	createCustomModules();
-
 	defineTokens();
 	defineGrammar();
 	_parser.set_start_symbol("rules");

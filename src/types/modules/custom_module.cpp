@@ -13,7 +13,26 @@
 namespace yaramod {
 
 using Json = nlohmann::json;
-using Type = Expression::Type;
+
+
+std::optional<ExpressionType> stringToExpressionType (const std::string& str)
+{
+	if (str == "undefined")
+		return ExpressionType::Undefined;
+	else if (str == "bool")
+		return ExpressionType::Bool;
+	else if (str == "int")
+		return ExpressionType::Int;
+	else if (str == "string")
+		return ExpressionType::String;
+	else if (str == "regexp")
+		return ExpressionType::Regexp;
+	else if (str == "object")
+		return ExpressionType::Object;
+	else if (str == "float")
+		return ExpressionType::Float;
+	return std::nullopt;
+}
 
 /**
  * Constructor.
@@ -45,25 +64,11 @@ void CustomModule::_addValue(StructureSymbol* base, const Json& json)
 	assert(base);
 
 	auto name = accessJsonString(json, "name");
-	auto t = accessJsonString(json, "type");
-	ExpressionType type;
+	auto t = stringToExpressionType(accessJsonString(json, "type"));
 
-	if (t == "undefined")
-		type = ExpressionType::Undefined;
-	else if (t == "bool")
-		type = ExpressionType::Bool;
-	else if (t == "int")
-		type = ExpressionType::Int;
-	else if (t == "string")
-		type = ExpressionType::String;
-	else if (t == "regexp")
-		type = ExpressionType::Regexp;
-	else if (t == "object")
-		type = ExpressionType::Object;
-	else if (t == "float")
-		type = ExpressionType::Float;
-	else
-		throw ModuleError("Unknown value type '" + t + "'");
+	if (!t)
+		throw ModuleError("Unknown value type '" + accessJsonString(json, "type") + "'");
+	auto type = t.value();
 
 	// Before creating new structure we first look for its existence within base attributes:	
 	std::optional<std::shared_ptr<Symbol>> existing = base->getAttribute(name);
@@ -87,23 +92,18 @@ void CustomModule::_addFunctions(StructureSymbol* base, const Json& json)
 	assert(base);
 
 	auto name = accessJsonString(json, "name");
-	auto arguments = accessJsonArray(json, "arguments");
+
+	auto arguments = accessJsonArray(json, "variants");
 	for (const auto& typeArray : arguments)
 	{
-		std::vector<Type> typeVector;
-		for (const auto& type : typeArray)
+		std::vector<ExpressionType> typeVector;
+		for (const auto& item : typeArray)
 		{
-			std::string t = type.get<std::string>();
-			if (t == "int")
-				typeVector.emplace_back(Type::Int);
-			else if (t == "regexp")
-				typeVector.emplace_back(Type::Regexp);
-			else if (t == "string")
-				typeVector.emplace_back(Type::String);
-			else if (t == "float")
-				typeVector.emplace_back(Type::Float);
-			else
+			auto t = item.get<std::string>();
+			auto type = stringToExpressionType(t);
+			if (!type)
 				throw ModuleError("Unknown function parameter type '" + t + "'");
+			typeVector.emplace_back(type.value());
 		}
 		auto function = std::make_shared<FunctionSymbol>(name, typeVector);
 		base->addAttribute(function);

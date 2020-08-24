@@ -144,7 +144,6 @@ protected:
 	/// @{
 	void defineTokens();
 	void defineGrammar();
-	void createCustomModules();
 	template <typename... Args> TokenIt emplace_back(Args&&... args);
 	void enter_state(const std::string& state);
 	void push_input_stream(std::istream& input) { _parser.push_input_stream(input); }
