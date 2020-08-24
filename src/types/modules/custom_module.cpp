@@ -175,11 +175,7 @@ bool CustomModule::initialize(ImportFeatures features)
 		if (name == std::string{})
 			throw ModuleError("Module name must be non-empty.");
 		else if (!_structure) // First iteration - need to create the structure.
-		{
 			_structure = _addStruct(nullptr, json);
-			// TODO delete:
-			_name = name;
-		}
 		else if (_name != name) // Throws - name of the module must be the same accross the files.
 			throw ModuleError("Module name must be the same in all files, but " + name + " != " + _name + ".\n" + getPathsAsString());
 		else // _struct already created, need only to add new attributes
