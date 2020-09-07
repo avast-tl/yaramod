@@ -103,7 +103,7 @@ void CustomModule::_addFunctions(StructureSymbol* base, const Json& json)
 		auto arguments = accessJsonArray(overload, "arguments");
 		for (const auto& item : arguments)
 		{
-			auto t = item.get<std::string>();
+			auto t = accessJsonString(item, "type");
 			auto type = stringToExpressionType(t);
 			if (!type)
 				throw ModuleError("Unknown function parameter type '" + t + "'");
