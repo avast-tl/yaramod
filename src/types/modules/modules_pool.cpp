@@ -17,8 +17,6 @@ using Json = nlohmann::json;
 
 ModulesPool::ModulesPool(const std::string& directory)
 {
-	std::cout << "ModulesPool constructor, " << directory << std::endl;
-
 	std::vector<std::string> paths = {
 		"/home/ts/dev/yaramod/include/modules/module_cuckoo.json",
 		"/home/ts/dev/yaramod/include/modules/module_cuckoo_avast.json",

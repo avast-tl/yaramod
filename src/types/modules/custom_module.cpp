@@ -19,17 +19,17 @@ std::optional<ExpressionType> stringToExpressionType (const std::string& str)
 {
 	if (str == "undefined")
 		return ExpressionType::Undefined;
-	else if (str == "bool")
+	else if (str == "bool" || str == "b")
 		return ExpressionType::Bool;
-	else if (str == "int")
+	else if (str == "int" || str == "i")
 		return ExpressionType::Int;
-	else if (str == "string")
+	else if (str == "string" || str == "s")
 		return ExpressionType::String;
-	else if (str == "regexp")
+	else if (str == "regexp" || str == "r")
 		return ExpressionType::Regexp;
-	else if (str == "object")
+	else if (str == "object" || str == "o")
 		return ExpressionType::Object;
-	else if (str == "float")
+	else if (str == "float" || str == "f")
 		return ExpressionType::Float;
 	return std::nullopt;
 }
