@@ -14,23 +14,20 @@ namespace yaramod {
 /**
  * Constructor.
  */
-YaraFile::YaraFile(ImportFeatures features)
-	: YaraFile(std::make_shared<TokenStream>(), features)
+YaraFile::YaraFile()
+	: YaraFile(std::make_shared<TokenStream>())
 {
-	if (_importFeatures & ImportFeatures::VirusTotalOnly)
-		initializeVTSymbols();
+	initializeVTSymbols();
 }
 
-YaraFile::YaraFile(const std::shared_ptr<TokenStream>& tokenStream, ImportFeatures features)
+YaraFile::YaraFile(const std::shared_ptr<TokenStream>& tokenStream)
 	: _tokenStream(std::move(tokenStream))
 	, _imports()
 	, _rules()
 	, _importTable()
 	, _ruleTable()
-	, _importFeatures(features)
 {
-	if (_importFeatures & ImportFeatures::VirusTotalOnly)
-		initializeVTSymbols();
+	initializeVTSymbols();
 }
 
 YaraFile::YaraFile(YaraFile&& o) noexcept
@@ -39,7 +36,6 @@ YaraFile::YaraFile(YaraFile&& o) noexcept
 	, _rules(std::move(o._rules))
 	, _importTable(std::move(o._importTable))
 	, _ruleTable(std::move(o._ruleTable))
-	, _importFeatures(std::move(o._importFeatures))
 	, _vtSymbols(std::move(o._vtSymbols))
 {
 }
@@ -51,7 +47,6 @@ YaraFile& YaraFile::operator=(YaraFile&& o) noexcept
 	std::swap(_rules, o._rules);
 	std::swap(_importTable, o._importTable);
 	std::swap(_ruleTable, o._ruleTable);
-	std::swap(_importFeatures, o._importFeatures);
 	std::swap(_vtSymbols, o._vtSymbols);
 	return *this;
 }
@@ -193,7 +188,7 @@ std::string YaraFile::getTextFormatted(bool withIncludes) const
  */
 bool YaraFile::addImport(TokenIt import, ModulesPool& modules)
 {
-	auto module = modules.load(import->getPureText(), _importFeatures);
+	auto module = modules.load(import->getPureText());
 	if (!module)
 		return false;
 

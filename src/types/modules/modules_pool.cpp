@@ -47,7 +47,7 @@ ModulesPool::ModulesPool(const std::string& directory)
 	}
 	// Initializes all modules
 	for (auto itr = _knownModules.begin(); itr != _knownModules.end(); ++itr)
-		itr->second->initialize(ImportFeatures::Basic);
+		itr->second->initialize();
 }
 
 }

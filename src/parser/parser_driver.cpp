@@ -1680,9 +1680,9 @@ void ParserDriver::initialize()
  * @param parserMode Parsing mode.
  * @param features determines iff we want to use aditional Avast-specific symbols or VirusTotal-specific symbols in the imported modules
  */
-ParserDriver::ParserDriver(ImportFeatures features)
+ParserDriver::ParserDriver()
 	: _strLiteral(), _indent(), _comment(), _regexpClass(), _parser(), _sectionStrings(false),
-	_escapedContent(false), _mode(ParserMode::Regular), _import_features(features), _modules(),
+	_escapedContent(false), _mode(ParserMode::Regular), _modules(),
 	_fileContexts(), _comments(), _includedFiles(), _includedFilesCache(), _valid(false),
 	_file(), _currentStrings(), _stringLoop(false), _localSymbols(), _lastRuleLocation(),
 	_lastRuleTokenStream(), _anonStringCounter(0)
@@ -1716,7 +1716,7 @@ bool ParserDriver::parse(std::istream& stream, ParserMode parserMode)
 		return false;
 
 	_fileContexts.emplace_back(&stream);
-	_file = YaraFile(currentFileContext()->getTokenStream(), _import_features);
+	_file = YaraFile(currentFileContext()->getTokenStream());
 	return parseImpl();
 }
 
@@ -1728,7 +1728,7 @@ bool ParserDriver::parse(const std::string& filePath, ParserMode parserMode)
 	if (includeFileImpl(filePath) != IncludeResult::Included)
 		return false;
 
-	_file = YaraFile(currentFileContext()->getTokenStream(), _import_features);
+	_file = YaraFile(currentFileContext()->getTokenStream());
 	return parseImpl();
 }
 

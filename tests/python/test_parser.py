@@ -387,35 +387,6 @@ rule dummy_rule {
         module = yara_file.imports[0]
         self.assertEqual(module.name, 'pe')
 
-    def test_imports_without_virus_total_symbols(self):
-        input_text = '''
-import "pe"
-
-rule dummy_rule {
-    condition:
-        true and new_file
-}'''
-        ymod = yaramod.Yaramod(yaramod.ImportFeatures.Avast)
-        with self.assertRaises(yaramod.ParserError):
-            ymod.parse_string(input_text)
-
-    def test_imports_with_deprecated_symbols(self):
-        yara_file = yaramod.Yaramod(yaramod.ImportFeatures.Everything).parse_string('''
-import "cuckoo"
-
-rule dummy_rule {
-    condition:
-        cuckoo.signature.hits(/regexp1/) and cuckoo.signature.name(/regexp2/) and new_file
-}''')
-
-        self.assertEqual(len(yara_file.imports), 1)
-        self.assertEqual(len(yara_file.rules), 1)
-
-        module = yara_file.imports[0]
-        self.assertEqual(module.name, 'cuckoo')
-        rule = yara_file.rules[0]
-        self.assertEqual(rule.condition.text, 'cuckoo.signature.hits(/regexp1/) and cuckoo.signature.name(/regexp2/) and new_file')
-
     def test_bool_literal_condition(self):
         yara_file = yaramod.Yaramod().parse_string('''
 rule bool_literal_condition {

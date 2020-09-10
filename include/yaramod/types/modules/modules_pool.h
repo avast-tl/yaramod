@@ -9,7 +9,6 @@
 #include <iostream>
 
 #include "yaramod/types/modules/module.h"
-#include "yaramod/types/modules/modules.h"
 
 namespace yaramod {
 
@@ -29,7 +28,7 @@ public:
 	 *
 	 * @return Module if found, @c nullptr otherwise.
 	 */
-	std::shared_ptr<Module> load(const std::string& name, ImportFeatures features)
+	std::shared_ptr<Module> load(const std::string& name)
 	{
 		auto itr = _knownModules.find(name);
 		// Check that the module exists
@@ -41,13 +40,13 @@ public:
 
 		// Initialize the module if it is not already initialized.
 		if (!itr->second->isInitialized())
-			itr->second->initialize(features);
+			itr->second->initialize();
 
 		return itr->second;
 	}
 
 private:
-	std::unordered_map<std::string, std::shared_ptr<CustomModule>> _knownModules = {}; ///< Table of all known modules
+	std::unordered_map<std::string, std::shared_ptr<Module>> _knownModules = {}; ///< Table of all known modules
 };
 
 } //namespace yaramod

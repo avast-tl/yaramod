@@ -4,7 +4,7 @@ import yaramod
 
 class BuilderTests(unittest.TestCase):
     def setUp(self):
-        self.new_file = yaramod.YaraFileBuilder(yaramod.ImportFeatures.AllCurrent)
+        self.new_file = yaramod.YaraFileBuilder()
         self.new_rule = yaramod.YaraRuleBuilder()
 
     def test_empty_file(self):

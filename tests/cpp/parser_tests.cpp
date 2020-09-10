@@ -3071,35 +3071,6 @@ rule cuckoo_module
 }
 
 TEST_F(ParserTests,
-CuckooModuleDeprecated) {
-	prepareInput(
-R"(
-import "cuckoo"
-
-rule cuckoo_module_deprecated
-{
-	condition:
-		cuckoo.network.http_request(/regexp/) and
-		cuckoo.network.http_request_body(/regexp/) and
-		cuckoo.signature.name(/regexp/)
-}
-)");
-
-	ParserDriver driverDeprecatedSymbols(ImportFeatures::Everything);
-	std::stringstream input2(input_text);
-
-	EXPECT_TRUE(driverDeprecatedSymbols.parse(input));
-	ASSERT_EQ(1u, driverDeprecatedSymbols.getParsedFile().getRules().size());
-
-	const auto& rule = driverDeprecatedSymbols.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(cuckoo.network.http_request(/regexp/) and cuckoo.network.http_request_body(/regexp/) and cuckoo.signature.name(/regexp/))", rule->getCondition()->getText());
-	EXPECT_EQ("cuckoo", rule->getCondition()->getFirstTokenIt()->getPureText());
-	EXPECT_EQ(")", rule->getCondition()->getLastTokenIt()->getPureText());
-
-	EXPECT_EQ(input_text, driverDeprecatedSymbols.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
 DotnetModuleWorks) {
 	prepareInput(
 R"(
@@ -3322,34 +3293,6 @@ rule virus_total_specific
 	EXPECT_EQ("hero", rule->getCondition()->getLastTokenIt()->getPureText());
 
 	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-VirusTotalSymbolsUnrecognized) {
-	prepareInput(
-R"(
-rule virus_total_specific
-{
-	condition:
-		positives > 5 and
-		bytehero == "hero"
-}
-)");
-
-	ParserDriver driverNoVTSymbols(ImportFeatures::Avast);
-	std::stringstream input2(input_text);
-
-	try
-	{
-		driverNoVTSymbols.parse(input2);
-		FAIL() << "Parser did not throw an exception.";
-	}
-	catch (const ParserError& err)
-	{
-		EXPECT_EQ(0u, driverNoVTSymbols.getParsedFile().getRules().size());
-		ASSERT_EQ(0u, driverNoVTSymbols.getParsedFile().getImports().size());
-		EXPECT_EQ("Error at 5.3-11: Unrecognized identifier 'positives' referenced", err.getErrorMessage());
-	}
 }
 
 TEST_F(ParserTests,
