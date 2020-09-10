@@ -13,8 +13,9 @@ namespace yaramod {
 nlohmann::json readJsonFile(const std::string& filePath);
 
 template<typename T>
-T accessJsonValue(const nlohmann::json& json, const std::string& key);
+T accessJson(const nlohmann::json& json, const std::string& key);
 std::string accessJsonString(const nlohmann::json& json, const std::string& key);
 std::vector<nlohmann::json> accessJsonArray(const nlohmann::json& json, const std::string& key);
+nlohmann::json accessJsonSubjson(const nlohmann::json& json, const std::string& key);
 
 }

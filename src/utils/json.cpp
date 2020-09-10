@@ -26,7 +26,7 @@ nlohmann::json readJsonFile(const std::string& filePath)
 }
 
 template<typename T>
-T accessJsonValue(const nlohmann::json& json, const std::string& key)
+T accessJson(const nlohmann::json& json, const std::string& key)
 {
 	if (!json.contains(key))
 	{
@@ -42,12 +42,17 @@ T accessJsonValue(const nlohmann::json& json, const std::string& key)
 
 std::string accessJsonString(const nlohmann::json& json, const std::string& key)
 {
-	return accessJsonValue<std::string>(json, key);
+	return accessJson<std::string>(json, key);
 }
 
 std::vector<nlohmann::json> accessJsonArray(const nlohmann::json& json, const std::string& key)
 {
-	return accessJsonValue<std::vector<nlohmann::json>>(json, key);
+	return accessJson<std::vector<nlohmann::json>>(json, key);
+}
+
+nlohmann::json accessJsonSubjson(const nlohmann::json& json, const std::string& key)
+{
+	return accessJson<nlohmann::json>(json, key);
 }
 
 }

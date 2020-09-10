@@ -58,31 +58,46 @@ std::string CustomModule::getPathsAsString() const
 	return message;
 }
 
-void CustomModule::_addValue(StructureSymbol* base, const Json& json)
+void CustomModule::_addIterable(StructureSymbol* base, const Json& json)
 {
-	assert(accessJsonString(json, "kind") == "value");
 	assert(base);
 
+	bool is_dictionary = false;
+	if (accessJsonString(json, "kind") == "dictionary")
+		is_dictionary = true;
+	if (!is_dictionary)
+		assert(accessJsonString(json, "kind") == "array");
+
 	auto name = accessJsonString(json, "name");
-	auto t = stringToExpressionType(accessJsonString(json, "type"));
 
-	if (!t)
-		throw ModuleError("Unknown value type '" + accessJsonString(json, "type") + "'");
-	auto type = t.value();
-
-	// Before creating new structure we first look for its existence within base attributes:	
 	std::optional<std::shared_ptr<Symbol>> existing = base->getAttribute(name);
 	if (existing)
 	{
-		if (existing.value()->getType() != Symbol::Type::Value)
-			throw ModuleError("Colliding definitions of " + name + " attribute with different kind. " + getPathsAsString());
-		if (existing.value()->getDataType() != type)
-			throw ModuleError("Colliding definitions of " + name + " attribute. The value is defined twice with different types. " + getPathsAsString());
+		if (is_dictionary && existing.value()->getType() != Symbol::Type::Dictionary)
+			throw ModuleError("Colliding definitions of " + name + " attribute with different kind. Expected dictionary." + getPathsAsString());
+		if (!is_dictionary && existing.value()->getType() != Symbol::Type::Array)
+			throw ModuleError("Colliding definitions of " + name + " attribute with different kind. Expected array." + getPathsAsString());
+	}
+	else if(json.contains("structure"))
+	{
+		auto structure_json = accessJsonSubjson(json, "structure");
+		auto embedded_structure = _addStruct(nullptr, structure_json);
+
+		if (is_dictionary)
+			base->addAttribute(std::make_shared<DictionarySymbol>(name, embedded_structure));
+		else
+			base->addAttribute(std::make_shared<ArraySymbol>(name, embedded_structure));
 	}
 	else
 	{
-		auto newValue = std::make_shared<ValueSymbol>(name, type);
-		base->addAttribute(newValue);
+		auto t = stringToExpressionType(accessJsonString(json, "type"));
+		if (!t)
+			throw ModuleError("Unknown dictionary type '" + accessJsonString(json, "type") + "'");
+		auto type = t.value();
+		if (is_dictionary)
+			base->addAttribute(std::make_shared<DictionarySymbol>(name, type));
+		else
+			base->addAttribute(std::make_shared<ArraySymbol>(name, type));
 	}
 }
 
@@ -143,6 +158,34 @@ std::shared_ptr<StructureSymbol> CustomModule::_addStruct(StructureSymbol* base,
 	return nullptr;
 }
 
+void CustomModule::_addValue(StructureSymbol* base, const Json& json)
+{
+	assert(accessJsonString(json, "kind") == "value");
+	assert(base);
+
+	auto name = accessJsonString(json, "name");
+	auto t = stringToExpressionType(accessJsonString(json, "type"));
+
+	if (!t)
+		throw ModuleError("Unknown value type '" + accessJsonString(json, "type") + "'");
+	auto type = t.value();
+
+	// Before creating new structure we first look for its existence within base attributes:	
+	std::optional<std::shared_ptr<Symbol>> existing = base->getAttribute(name);
+	if (existing)
+	{
+		if (existing.value()->getType() != Symbol::Type::Value)
+			throw ModuleError("Colliding definitions of " + name + " attribute with different kind. Expected value." + getPathsAsString());
+		if (existing.value()->getDataType() != type)
+			throw ModuleError("Colliding definitions of " + name + " attribute. The value is defined twice with different types. " + getPathsAsString());
+	}
+	else
+	{
+		auto newValue = std::make_shared<ValueSymbol>(name, type);
+		base->addAttribute(newValue);
+	}
+}
+
 void CustomModule::_addAttributeFromJson(StructureSymbol* base, const Json& json)
 {
 	auto kind = accessJsonString(json, "kind");
@@ -152,6 +195,8 @@ void CustomModule::_addAttributeFromJson(StructureSymbol* base, const Json& json
 		_addStruct(base, json);
 	else if (kind == "value")
 		_addValue(base, json);
+	else if (kind == "dictionary" || kind == "array")
+		_addIterable(base, json);
 	else
 		throw ModuleError("Unknown kind entry '" + kind + "'");
 }

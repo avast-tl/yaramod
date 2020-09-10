@@ -47,21 +47,7 @@ public:
 	}
 
 private:
-	std::unordered_map<std::string, std::shared_ptr<CustomModule>> _knownModules = {
-		// { "androguard", std::make_shared<AndroguardModule>() },
-		// // { "cuckoo",     std::make_shared<CuckooModule>()     },
-		// { "dex",        std::make_shared<DexModule>()        },
-		// { "dotnet",     std::make_shared<DotnetModule>()     },
-		// { "elf",        std::make_shared<ElfModule>()        },
-		// { "hash",       std::make_shared<HashModule>()       },
-		// { "macho",      std::make_shared<MachoModule>()      },
-		// { "magic",      std::make_shared<MagicModule>()      },
-		// { "math",       std::make_shared<MathModule>()       },
-		// { "metadata",   std::make_shared<MetadataModule>()   },
-		// { "pe",         std::make_shared<PeModule>()         },
-		// { "phish",      std::make_shared<PhishModule>()      },
-		// { "time",       std::make_shared<TimeModule>()       }
-	}; ///< Table of all known modules
+	std::unordered_map<std::string, std::shared_ptr<CustomModule>> _knownModules = {}; ///< Table of all known modules
 };
 
 } //namespace yaramod
