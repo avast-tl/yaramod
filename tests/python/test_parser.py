@@ -374,14 +374,13 @@ private rule private_rule {
     def test_import(self):
         yara_file = yaramod.Yaramod().parse_string('''
 import "pe"
-import "phish"
 
 rule dummy_rule {
     condition:
         true and new_file
 }''')
 
-        self.assertEqual(len(yara_file.imports), 2)
+        self.assertEqual(len(yara_file.imports), 1)
         self.assertEqual(len(yara_file.rules), 1)
 
         module = yara_file.imports[0]

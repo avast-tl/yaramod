@@ -359,7 +359,7 @@ public:
 	virtual VisitResult visit(FunctionCallExpression* expr) override
 	{
 		auto functionName = expr->getFunction()->getText();
-		if (isFunctionInBlacklist(functionName, avastOnlyFunctionsRemove))
+		if (isFunctionInBlacklist(functionName, functionsRemove))
 			_needsToBeRemoved = true;
 		return {};
 	}
@@ -416,9 +416,9 @@ private:
 	std::shared_ptr<Symbol> _fileAccessSymbol;
 	std::shared_ptr<Symbol> _keyAccessSymbol;
 
-	const std::unordered_set<std::string> avastOnlyFunctionsRemove =
+	const std::unordered_set<std::string> functionsRemove =
 	{
-		"cuckoo.network.http_request_body"
+		"cuckoo.network.http_request"
 	};
 };
 
@@ -461,7 +461,7 @@ R"(
 import "cuckoo"
 rule rule_name {
 	condition:
-		cuckoo.network.http_request_body(/http:\/\/someone\.doingevil\.com/)
+		cuckoo.network.http_request(/http:\/\/someone\.doingevil\.com/)
 }
 )");
 	EXPECT_TRUE(driver.parse(input));
@@ -499,8 +499,8 @@ R"(
 import "cuckoo"
 rule rule_name {
 	condition:
-		cuckoo.network.http_request_body(/a/) or
-		cuckoo.network.http_request_body(/b/)
+		cuckoo.network.http_request(/a/) or
+		cuckoo.network.http_request(/b/)
 }
 )");
 	EXPECT_TRUE(driver.parse(input));
@@ -539,7 +539,7 @@ import "cuckoo"
 rule rule_name {
 	condition:
 		entrypoint == 0 or
-		cuckoo.network.http_request_body(/b/)
+		cuckoo.network.http_request(/b/)
 }
 )");
 	EXPECT_TRUE(driver.parse(input));
@@ -580,8 +580,8 @@ rule rule_name {
 	condition:
 	entrypoint == 0 or
 	(
-		cuckoo.network.http_request_body(/a/) or
-		cuckoo.network.http_request_body(/b/)
+		cuckoo.network.http_request(/a/) or
+		cuckoo.network.http_request(/b/)
 	)
 }
 )");
@@ -623,11 +623,11 @@ R"(
 import "cuckoo"
 rule rule_name {
 	condition:
-	cuckoo.network.http_request_body(/a/) or
+	cuckoo.network.http_request(/a/) or
 	(
 		filesize > 12 and
 		true or
-		cuckoo.network.http_request_body(/b/)
+		cuckoo.network.http_request(/b/)
 	)
 }
 )");
@@ -687,7 +687,7 @@ rule rule_1 : Tag1 Tag2
 	condition:
 		pe.exports("ExitProcess")
 		and
-		cuckoo.network.http_request_body(/a/)
+		cuckoo.network.http_request(/a/)
 		and
 		for any of them : ( $ at pe.entry_point )
 }
@@ -700,7 +700,7 @@ rule rule_2
 	strings:
 		$abc = "no case full word" nocase fullword
 	condition:
-		elf.type == elf.ET_EXEC and $abc at elf.entry_point and cuckoo.network.http_request_body(/b/) and filesize == 10
+		elf.type == elf.ET_EXEC and $abc at elf.entry_point and cuckoo.network.http_request(/b/) and filesize == 10
 }
 )");
 

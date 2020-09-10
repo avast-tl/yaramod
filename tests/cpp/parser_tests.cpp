@@ -1258,11 +1258,11 @@ import "pe"
 rule rule_with_complicated_regexp_class
 {
 	condition:
-		cuckoo.process.executed_command(/[^\\]+/)
+		cuckoo.network.http_get(/[^\\]+/)
 		and
-		cuckoo.filesystem.file_write(/\.bribe$/)
+		cuckoo.filesystem.file_access(/\.bribe$/)
 		and
-		cuckoo.filesystem.file_write(/[\]}]\.(b[0-2]+|VC[0-9]*|DAQ)$/)
+		cuckoo.filesystem.file_access(/[\]}]\.(b[0-2]+|VC[0-9]*|DAQ)$/)
 }
 )");
 
@@ -1273,7 +1273,7 @@ rule rule_with_complicated_regexp_class
 	EXPECT_EQ("rule_with_complicated_regexp_class", rule->getName());
 	EXPECT_EQ(Rule::Modifier::None, rule->getModifier());
 
-	EXPECT_EQ("cuckoo.process.executed_command(/[^\\\\]+/) and cuckoo.filesystem.file_write(/\\.bribe$/) and cuckoo.filesystem.file_write(/[\\]}]\\.(b[0-2]+|VC[0-9]*|DAQ)$/)", rule->getCondition()->getText());
+	EXPECT_EQ("cuckoo.network.http_get(/[^\\\\]+/) and cuckoo.filesystem.file_access(/\\.bribe$/) and cuckoo.filesystem.file_access(/[\\]}]\\.(b[0-2]+|VC[0-9]*|DAQ)$/)", rule->getCondition()->getText());
 	EXPECT_EQ("cuckoo", rule->getCondition()->getFirstTokenIt()->getText());
 	EXPECT_EQ(")", rule->getCondition()->getLastTokenIt()->getPureText());
 
@@ -1284,9 +1284,9 @@ import "pe"
 rule rule_with_complicated_regexp_class
 {
 	condition:
-		cuckoo.process.executed_command(/[^\\]+/) and
-		cuckoo.filesystem.file_write(/\.bribe$/) and
-		cuckoo.filesystem.file_write(/[\]}]\.(b[0-2]+|VC[0-9]*|DAQ)$/)
+		cuckoo.network.http_get(/[^\\]+/) and
+		cuckoo.filesystem.file_access(/\.bribe$/) and
+		cuckoo.filesystem.file_access(/[\]}]\.(b[0-2]+|VC[0-9]*|DAQ)$/)
 }
 )";
 	EXPECT_EQ(expected, driver.getParsedFile().getTextFormatted());
@@ -2938,85 +2938,6 @@ rule same_variable_in_nested_for_loops
 }
 
 TEST_F(ParserTests,
-AndroguardModuleWorks) {
-	prepareInput(
-R"(
-import "androguard"
-
-rule dummy_rule
-{
-	condition:
-		androguard.max_sdk > androguard.signature.hits("dummy") and
-		androguard.min_sdk == androguard.max_sdk
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(androguard.max_sdk > androguard.signature.hits("dummy") and androguard.min_sdk == androguard.max_sdk)", rule->getCondition()->getText());
-	EXPECT_EQ("androguard", rule->getCondition()->getFirstTokenIt()->getPureText());
-	EXPECT_EQ("max_sdk", rule->getCondition()->getLastTokenIt()->getPureText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-PhishModuleWorks) {
-	prepareInput(
-R"(
-import "phish"
-
-rule dummy_rule
-{
-	condition:
-		phish.file_contents.input.ids_hash("x") == "dummy_hash" and
-		phish.source_url == "a" and
-		phish.file_contents.a.class("y") == 5
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(phish.file_contents.input.ids_hash("x") == "dummy_hash" and phish.source_url == "a" and phish.file_contents.a.class("y") == 5)", rule->getCondition()->getText());
-	EXPECT_EQ("phish", rule->getCondition()->getFirstTokenIt()->getPureText());
-	EXPECT_EQ("5", rule->getCondition()->getLastTokenIt()->getPureText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-MetadataModuleWorks) {
-	prepareInput(
-R"(
-import "metadata"
-
-rule dummny_rule
-{
-	condition:
-		metadata.file.name("filename.txt") and
-		metadata.file.name(/regexp/) and
-		metadata.detection.name(/regexp/) and
-		metadata.detection.name("vps", /regexp/)
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(metadata.file.name("filename.txt") and metadata.file.name(/regexp/) and metadata.detection.name(/regexp/) and metadata.detection.name("vps", /regexp/))", rule->getCondition()->getText());
-	EXPECT_EQ("metadata", rule->getCondition()->getFirstTokenIt()->getPureText());
-	EXPECT_EQ(")", rule->getCondition()->getLastTokenIt()->getPureText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-
-}
-
-TEST_F(ParserTests,
 CuckooModuleWorks) {
 	prepareInput(
 R"(
@@ -3037,33 +2958,6 @@ rule cuckoo_module
 
 	const auto& rule = driver.getParsedFile().getRules()[0];
 	EXPECT_EQ(R"($some_string and cuckoo.network.dns_lookup(/http:\/\/someone\.doingevil\.com/))", rule->getCondition()->getText());
-	EXPECT_EQ("$some_string", rule->getCondition()->getFirstTokenIt()->getPureText());
-	EXPECT_EQ(")", rule->getCondition()->getLastTokenIt()->getPureText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-CuckooModuleAvastSpecific) {
-	prepareInput(
-R"(
-import "cuckoo"
-
-rule cuckoo_module
-{
-	strings:
-		$some_string = { 01 02 03 04 05 05 }
-	condition:
-		$some_string and
-		cuckoo.network.http_request_body(/http:\/\/someone\.doingevil\.com/)
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"($some_string and cuckoo.network.http_request_body(/http:\/\/someone\.doingevil\.com/))", rule->getCondition()->getText());
 	EXPECT_EQ("$some_string", rule->getCondition()->getFirstTokenIt()->getPureText());
 	EXPECT_EQ(")", rule->getCondition()->getLastTokenIt()->getPureText());
 
@@ -4706,14 +4600,14 @@ import "cuckoo"
 rule nonutf_condition
 {
 	condition:
-		cuckoo.filesystem.file_write(/내/)
+		cuckoo.filesystem.file_access(/내/)
 }
 )");
 	EXPECT_TRUE(driver.parse(input));
 	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
 
 	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(cuckoo.filesystem.file_write(/내/))", rule->getCondition()->getText());
+	EXPECT_EQ(R"(cuckoo.filesystem.file_access(/내/))", rule->getCondition()->getText());
 
 	std::string expected =
 R"(
@@ -4722,7 +4616,7 @@ import "cuckoo"
 rule nonutf_condition
 {
 	condition:
-		cuckoo.filesystem.file_write(/내/)
+		cuckoo.filesystem.file_access(/내/)
 }
 )";
 
@@ -5896,7 +5790,7 @@ rule rule_name_1 {
 
 	condition:
 
-		all of them and cuckoo.process.executed_command(/abc+/)
+		all of them and cuckoo.registry.key_access(/abc+/)
 
 }
 
@@ -5941,7 +5835,7 @@ rule rule_name_1
 		$string3 = { AA ?? }
 	condition:
 		all of them and
-		cuckoo.process.executed_command(/abc+/)
+		cuckoo.registry.key_access(/abc+/)
 }
 
 rule rule_name_2
@@ -6282,160 +6176,6 @@ rule abc
 )";
 
 	EXPECT_EQ(expected, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-CuckooSuricataModuleFunction) {
-	prepareInput(
-R"(
-import "cuckoo"
-
-rule cuckoo_suricata
-{
-	condition:
-		cuckoo.network.suricata(/SomeEvilSuricataSignature/)
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(cuckoo.network.suricata(/SomeEvilSuricataSignature/))", rule->getCondition()->getText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-CuckooScheduledTaskModuleFunction) {
-	prepareInput(
-R"(
-import "cuckoo"
-
-rule cuckoo_scheduled
-{
-	condition:
-		cuckoo.process.scheduled_task(/SomeEvilTask/)
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(cuckoo.process.scheduled_task(/SomeEvilTask/))", rule->getCondition()->getText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-CuckooDesktopModuleFunction) {
-	prepareInput(
-R"(
-import "cuckoo"
-
-rule cuckoo_desktop
-{
-	condition:
-		cuckoo.sync.desktop(/SomeEvilDesktop/)
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(cuckoo.sync.desktop(/SomeEvilDesktop/))", rule->getCondition()->getText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-CuckooClassCreatedModuleFunction) {
-	prepareInput(
-R"(
-import "cuckoo"
-
-rule cuckoo_class_created
-{
-	condition:
-		cuckoo.process.class_created(/SomeEvilClass/)
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(cuckoo.process.class_created(/SomeEvilClass/))", rule->getCondition()->getText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-CuckooClassSearchedModuleFunction) {
-	prepareInput(
-R"(
-import "cuckoo"
-
-rule cuckoo_class_searched
-{
-	condition:
-		cuckoo.process.class_searched(/SomeEvilClass/)
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(cuckoo.process.class_searched(/SomeEvilClass/))", rule->getCondition()->getText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-CuckooWindowCreatedModuleFunction) {
-	prepareInput(
-R"(
-import "cuckoo"
-
-rule cuckoo_window_created
-{
-	condition:
-		cuckoo.process.window_created(/SomeEvilWindow/)
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(cuckoo.process.window_created(/SomeEvilWindow/))", rule->getCondition()->getText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-CuckooWindowSearchedModuleFunction) {
-	prepareInput(
-R"(
-import "cuckoo"
-
-rule cuckoo_window_searched
-{
-	condition:
-		cuckoo.process.window_searched(/SomeEvilWindow/)
-}
-)");
-
-	EXPECT_TRUE(driver.parse(input));
-	ASSERT_EQ(1u, driver.getParsedFile().getRules().size());
-
-	const auto& rule = driver.getParsedFile().getRules()[0];
-	EXPECT_EQ(R"(cuckoo.process.window_searched(/SomeEvilWindow/))", rule->getCondition()->getText());
-
-	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
 }
 
 TEST_F(ParserTests,

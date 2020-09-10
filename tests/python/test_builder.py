@@ -14,19 +14,19 @@ class BuilderTests(unittest.TestCase):
 
     def test_pure_imports(self):
         yara_file = self.new_file \
-            .with_module('phish') \
+            .with_module('math') \
             .with_module('pe') \
             .with_module('elf') \
             .get()
 
         self.assertEqual(yara_file.text_formatted, '''import "elf"
+import "math"
 import "pe"
-import "phish"
 
 ''')
         self.assertEqual(yara_file.text, '''import "elf"
+import "math"
 import "pe"
-import "phish"
 ''')
 
     def test_empty_rule(self):

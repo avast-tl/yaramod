@@ -504,15 +504,11 @@ rule rule_1
                 self.filesystem_symbol = None
                 self.registry_symbol = None
                 self.FILESYSTEM_REPLACE = set([
-                    'cuckoo.filesystem.file_write',
-                ])
-
-                self.REGISTRY_REPLACE = set([
-                    'cuckoo.registry.key_write',
+                    'cuckoo.network.http_post',
                 ])
 
                 self.WHITELIST = set([
-                    'cuckoo.network.http_post',
+                    'cuckoo.network.http_request',
                 ])
 
             def replace_functions(self, yara_file):
@@ -521,8 +517,7 @@ rule rule_1
                     return
 
                 if not self.filesystem_symbol and not self.registry_symbol:
-                    self.filesystem_symbol = yara_file.find_symbol('cuckoo').get_attribute('filesystem').get_attribute('file_access')
-                    self.registry_symbol = yara_file.find_symbol('cuckoo').get_attribute('registry').get_attribute('key_access')
+                    self.filesystem_symbol = yara_file.find_symbol('cuckoo').get_attribute('network').get_attribute('http_request')
 
                 for rule in yara_file.rules:
                     rule.condition = self.modify(rule.condition, when_deleted=yaramod.bool_val(False).get())
@@ -628,8 +623,6 @@ rule rule_1
                 if function_name.startswith('cuckoo.'):
                     if function_name in self.FILESYSTEM_REPLACE:
                         expr.function.symbol = self.filesystem_symbol
-                    elif function_name in self.REGISTRY_REPLACE:
-                        expr.function.symbol = self.registry_symbol
                     elif function_name not in self.WHITELIST:
                         return yaramod.VisitAction.Delete
 
@@ -642,11 +635,11 @@ rule rule_1 {
 	condition:
 		$str1 and
 		(
-			cuckoo.filesystem.file_write(/C:\\Users\\Avastian\\file1.exe/i) or
-			cuckoo.filesystem.file_read(/C:\\Users\\Avastian\\file1.exe/i) or
-			cuckoo.registry.key_write(/\\Microsoft\\Windows NT\\CurrentVersion/i) or
+			cuckoo.filesystem.file_access(/C:\\Users\\Avastian\\file1.exe/i) or
+			cuckoo.network.http_get(/C:\\Users\\Avastian\\file1.exe/i) or
+			cuckoo.registry.key_access(/\\Microsoft\\Windows NT\\CurrentVersion/i) or
 			cuckoo.network.http_post(/\/.*\/tasks\.php/) or
-			cuckoo.process.executed_command(/(^|\\)a(\.exe|\s)/i)
+			cuckoo.registry.key_access(/(^|\\)a(\.exe|\s)/i)
 		)
 }
 ''')
@@ -657,7 +650,7 @@ rule rule_1 {
         self.assertEqual(len(yara_file.rules), 1)
         rule = yara_file.rules[0]
         cond = rule.condition
-        self.assertEqual(r'''$str1 and (cuckoo.filesystem.file_access(/C:\\Users\\Avastian\\file1.exe/i) or false or cuckoo.registry.key_access(/\\Microsoft\\Windows NT\\CurrentVersion/i) or cuckoo.network.http_post(/\/.*\/tasks\.php/) or false)''', cond.text)
+        self.assertEqual(r'''$str1 and (false or false or false or cuckoo.network.http_request(/\/.*\/tasks\.php/) or false)''', cond.text)
 
         self.assertEqual(r'''import "cuckoo"
 
@@ -665,7 +658,7 @@ rule rule_1 {
 	strings:
 		$str1 = "a"
 	condition:
-		$str1 and (cuckoo.filesystem.file_access(/C:\\Users\\Avastian\\file1.exe/i) or false or cuckoo.registry.key_access(/\\Microsoft\\Windows NT\\CurrentVersion/i) or cuckoo.network.http_post(/\/.*\/tasks\.php/) or false)
+		$str1 and (false or false or false or cuckoo.network.http_request(/\/.*\/tasks\.php/) or false)
 }''', yara_file.text)
         expected = r'''
 import "cuckoo"
@@ -677,10 +670,10 @@ rule rule_1
 	condition:
 		$str1 and
 		(
-			cuckoo.filesystem.file_access(/C:\\Users\\Avastian\\file1.exe/i) or
 			false or
-			cuckoo.registry.key_access(/\\Microsoft\\Windows NT\\CurrentVersion/i) or
-			cuckoo.network.http_post(/\/.*\/tasks\.php/) or
+			false or
+			false or
+			cuckoo.network.http_request(/\/.*\/tasks\.php/) or
 			false
 		)
 }
