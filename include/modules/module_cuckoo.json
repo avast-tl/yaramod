@@ -1,0 +1,142 @@
+{
+    "kind": "struct",
+    "name": "cuckoo",
+    "attributes": [
+        {
+            "kind": "struct",
+            "name": "network",
+            "attributes": [
+                {
+                    "kind": "function",
+                    "name": "dns_lookup",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "domain"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program sent a domain name resolution request for a domain matching the provided regular expression.\n\nExample: cuckoo.network.dns_lookup(/evil\\.com/)"
+                        }
+                    ]
+                },
+                {
+                    "kind": "function",
+                    "name": "http_get",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "url"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program sent a HTTP GET request to a URL matching the provided regular expression."
+                        }
+                    ]
+                },
+                {
+                    "kind": "function",
+                    "name": "http_post",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "url"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program sent a HTTP POST request to a URL matching the provided regular expression."
+                        }
+                    ]
+                },
+                {
+                    "kind": "function",
+                    "name": "http_request",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "url"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program sent a HTTP request to a URL matching the provided regular expression."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "struct",
+            "name": "registry",
+            "attributes": [
+                {
+                    "kind": "function",
+                    "name": "key_access",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "registry entry"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program accessed a registry entry matching the provided regular expression."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "struct",
+            "name": "filesystem",
+            "attributes": [
+                {
+                    "kind": "function",
+                    "name": "file_access",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "file"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program accessed a file matching the provided regular expression."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "struct",
+            "name": "sync",
+            "attributes": [
+                {
+                    "kind": "function",
+                    "name": "mutex",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "mutex"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program opens or creates a mutex matching the provided regular expression."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

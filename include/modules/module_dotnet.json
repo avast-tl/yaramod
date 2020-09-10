@@ -1,0 +1,270 @@
+{
+    "kind": "struct",
+    "name": "dotnet",
+    "attributes": [
+        {
+            "kind": "value",
+            "name": "version",
+            "documentation": "The version string contained in the metadata root. Example: ```dotnet.version == \"v2.0.50727\"```",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "module_name",
+            "documentation": "The name of the module. Example: ```dotnet.module_name == \"axs\"```",
+            "type": "s"
+        },
+        {
+            "kind": "array",
+            "name": "streams",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "streams",
+                "documentation": "A zero-based array of stream objects, one for each stream contained in the file. Individual streams can be accessed by using the [] operator. Example: ```dotnet.streams[0].name == \"#~\"```",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "name",
+                        "documentation": "Stream name.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "offset",
+                        "documentation": "Stream offset.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "size",
+                        "documentation": "Stream size.",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "value",
+            "name": "number_of_streams",
+            "documentation": "The number of streams in the file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "guids",
+            "documentation": "A zero-based array of strings, one for each GUID. Individual guids can be accessed by using the [] operator. Example: ```dotnet.guids[0] == \"99c08ffd-f378-a891-10ab-c02fe11be6ef\"```",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_guids",
+            "documentation": "The number of GUIDs in the guids array.",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "resources",
+            "documentation": "A zero-based array of resource objects, one for each resource the .NET file has. Individual resources can be accessed by using the [] operator. Example: ```uint16be(dotnet.resources[0].offset) == 0x4d5a```",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "resources",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "name",
+                        "documentation": "Name of the resource (string).",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "offset",
+                        "documentation": "Offset for the resource data.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "length",
+                        "documentation": "Length of the resource data.",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "value",
+            "name": "number_of_resources",
+            "documentation": "The number of resources in the .NET file. These are different from normal PE resources.",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "assembly_refs",
+            "documentation": "Object for .NET assembly reference information.",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "assembly_refs",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "struct",
+                        "name": "version",
+                        "documentation": "An object with integer values representing version information for this assembly.",
+                        "attributes": [
+                            {
+                                "kind": "value",
+                                "name": "major",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "minor",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "build_number",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "revision_number",
+                                "documentation": "",
+                                "type": "i"
+                            }
+                        ]
+                    },
+                    {
+                        "kind": "value",
+                        "name": "public_key_or_token",
+                        "documentation": "String containing the public key or token which identifies the author of this assembly.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "name",
+                        "documentation": "String containing the assembly name.",
+                        "type": "s"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "value",
+            "name": "number_of_assembly_refs",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "struct",
+            "name": "assembly",
+            "documentation": "Object for .NET assembly information. Example: ```dotnet.assembly.name == \"Keylogger\"```",
+            "attributes": [
+                {
+                    "kind": "struct",
+                    "name": "version",
+                    "documentation": "An object with integer values representing version information for this assembly.",
+                    "attributes": [
+                        {
+                            "kind": "value",
+                            "name": "major",
+                            "documentation": "",
+                            "type": "i"
+                        },
+                        {
+                            "kind": "value",
+                            "name": "minor",
+                            "documentation": "",
+                            "type": "i"
+                        },
+                        {
+                            "kind": "value",
+                            "name": "build_number",
+                            "documentation": "",
+                            "type": "i"
+                        },
+                        {
+                            "kind": "value",
+                            "name": "revision_number",
+                            "documentation": "",
+                            "type": "i"
+                        }
+                    ]
+                },
+                {
+                    "kind": "value",
+                    "name": "name",
+                    "documentation": "String containing the assembly name.",
+                    "type": "s"
+                },
+                {
+                    "kind": "value",
+                    "name": "culture",
+                    "documentation": "String containing the culture (language/country/region) for this assembly.",
+                    "type": "s"
+                }
+            ]
+        },
+        {
+            "kind": "array",
+            "name": "modulerefs",
+            "documentation": "A zero-based array of strings, one for each module reference the .NET file has. Individual module references can be accessed by using the [] operator. Example: ```dotnet.modulerefs[0] == \"kernel32\"```",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_modulerefs",
+            "documentation": "The number of module references in the .NET file.",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "user_strings",
+            "documentation": "An zero-based array of user strings, one for each stream contained in the file. Individual strings can be accessed by using the [] operator.",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_user_strings",
+            "documentation": "The number of user strings in the file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "typelib",
+            "documentation": "The typelib of the file.",
+            "type": "s"
+        },
+        {
+            "kind": "array",
+            "name": "constants",
+            "documentation": "",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_constants",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "field_offsets",
+            "documentation": "A zero-based array of integers, one for each field. Individual field offsets can be accessed by using the [] operator.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_field_offsets",
+            "documentation": "The number of fields in the field_offsets array.",
+            "type": "i"
+        }
+    ]
+}

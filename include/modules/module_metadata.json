@@ -1,0 +1,18 @@
+{
+    "kind": "struct",
+    "name": "metadata",
+    "attributes": [
+        {
+            "kind": "struct",
+            "name": "file",
+            "attributes": [],
+            "documentation": "Processes name of files saved in file_names key of JSON file."
+        },
+        {
+            "kind": "struct",
+            "name": "detection",
+            "attributes": [],
+            "documentation": "Processes items saved in *detections* key of JSON file."
+        }
+    ]
+}

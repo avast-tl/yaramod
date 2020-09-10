@@ -19,21 +19,14 @@ ModulesPool::ModulesPool(const std::string& directory)
 {
 	std::vector<std::string> paths = {
 		"/home/ts/dev/yaramod/include/modules/module_cuckoo.json",
-		"/home/ts/dev/yaramod/include/modules/module_cuckoo_avast.json",
-		"/home/ts/dev/yaramod/include/modules/module_cuckoo_deprecated.json",
-		"/home/ts/dev/yaramod/include/modules/module_androguard_avast.json",
 		"/home/ts/dev/yaramod/include/modules/module_pe.json",
-		"/home/ts/dev/yaramod/include/modules/module_dex.json",
 		"/home/ts/dev/yaramod/include/modules/module_dotnet.json",
 		"/home/ts/dev/yaramod/include/modules/module_elf.json",
 		"/home/ts/dev/yaramod/include/modules/module_hash.json",
-		"/home/ts/dev/yaramod/include/modules/module_macho.json",
 		"/home/ts/dev/yaramod/include/modules/module_magic.json",
 		"/home/ts/dev/yaramod/include/modules/module_math.json",
 		"/home/ts/dev/yaramod/include/modules/module_metadata.json",
-		"/home/ts/dev/yaramod/include/modules/module_metadata_avast.json",
-		"/home/ts/dev/yaramod/include/modules/module_time.json",
-		"/home/ts/dev/yaramod/include/modules/module_phish.json"
+		"/home/ts/dev/yaramod/include/modules/module_time.json"
 	};
 
 	/* For each path create new module or add the path to existing one. */

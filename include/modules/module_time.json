@@ -1,0 +1,17 @@
+{
+    "kind": "struct",
+    "name": "time",
+    "attributes": [
+        {
+            "kind": "function",
+            "name": "now",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [],
+                    "documentation": "Function returning an integer which is the number of seconds since January 1, 1970. Example: ```pe.timestamp > time.now()```"
+                }
+            ]
+        }
+    ]
+}

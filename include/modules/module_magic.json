@@ -1,0 +1,28 @@
+{
+    "kind": "struct",
+    "name": "magic",
+    "attributes": [
+        {
+            "kind": "function",
+            "name": "mime_type",
+            "return_type": "s",
+            "overloads": [
+                {
+                    "arguments": [],
+                    "documentation": "Function returning a string with the type of the file. Example: ```magic.type() contains \"PDF\"```"
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "type",
+            "return_type": "s",
+            "overloads": [
+                {
+                    "arguments": [],
+                    "documentation": "Function returning a string with the MIME type of the file. Example: ```magic.mime_type() == \"application/pdf\"```"
+                }
+            ]
+        }
+    ]
+}

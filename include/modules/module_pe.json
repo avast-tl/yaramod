@@ -1,0 +1,1531 @@
+{
+    "kind": "struct",
+    "name": "pe",
+    "attributes": [
+        {
+            "kind": "value",
+            "name": "MACHINE_UNKNOWN",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_AM33",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_AMD64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_ARM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_ARMNT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_ARM64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_EBC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_I386",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_IA64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_M32R",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_MIPS16",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_MIPSFPU",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_MIPSFPU16",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_POWERPC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_POWERPCFP",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_R4000",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_SH3",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_SH3DSP",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_SH4",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_SH5",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_THUMB",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_WCEMIPSV2",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_UNKNOWN",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_NATIVE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_WINDOWS_GUI",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_WINDOWS_CUI",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_OS2_CUI",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_POSIX_CUI",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_NATIVE_WINDOWS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_WINDOWS_CE_GUI",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_EFI_APPLICATION",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_EFI_RUNTIME_DRIVER",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_XBOX",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SUBSYSTEM_WINDOWS_BOOT_APPLICATION",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DYNAMIC_BASE",
+            "documentation": "File can be relocated - also marks the file as ASLR compatible",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "FORCE_INTEGRITY",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "NX_COMPAT",
+            "documentation": "Marks the file as DEP compatible",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "NO_ISOLATION",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "NO_SEH",
+            "documentation": "The file does not contain structured exception handlers, this must be set to use SafeSEH",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "NO_BIND",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "WDM_DRIVER",
+            "documentation": "Marks the file as a Windows Driver Model (WDM) device driver.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TERMINAL_SERVER_AWARE",
+            "documentation": "Marks the file as terminal server compatible",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RELOCS_STRIPPED",
+            "documentation": "Relocation info stripped from file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EXECUTABLE_IMAGE",
+            "documentation": "File is executable (i.e. no unresolved external references).",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "LINE_NUMS_STRIPPED",
+            "documentation": "Line numbers stripped from file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "LOCAL_SYMS_STRIPPED",
+            "documentation": "Local symbols stripped from file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "AGGRESIVE_WS_TRIM",
+            "documentation": "Aggressively trim working set",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "LARGE_ADDRESS_AWARE",
+            "documentation": "App can handle >2gb addresses",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "BYTES_REVERSED_LO",
+            "documentation": "Bytes of machine word are reversed.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MACHINE_32BIT",
+            "documentation": "32 bit word machine.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DEBUG_STRIPPED",
+            "documentation": "Debugging info stripped from file in .DBG file",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "REMOVABLE_RUN_FROM_SWAP",
+            "documentation": "If Image is on removable media, copy and run from the swap file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "NET_RUN_FROM_SWAP",
+            "documentation": "If Image is on Net, copy and run from the swap file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SYSTEM",
+            "documentation": "System File.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DLL",
+            "documentation": "File is a DLL.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "UP_SYSTEM_ONLY",
+            "documentation": "File should only be run on a UP machine",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "BYTES_REVERSED_HI",
+            "documentation": "Bytes of machine word are reversed.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_EXPORT",
+            "documentation": "Data directory for exported functions.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_IMPORT",
+            "documentation": "Data directory for import directory.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_RESOURCE",
+            "documentation": "Data directory for resource section.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_EXCEPTION",
+            "documentation": "Data directory for exception information.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_SECURITY",
+            "documentation": "This is the raw file offset and length of the image digital signature. If the image has no embedded digital signature, this directory will contain zeros.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_BASERELOC",
+            "documentation": "Data directory for image relocation table.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_DEBUG",
+            "documentation": "Data directory for debug information.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_ARCHITECTURE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_GLOBALPTR",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_TLS",
+            "documentation": "Data directory for image thread local storage.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG",
+            "documentation": "Data directory for image load configuration.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT",
+            "documentation": "Data directory for image bound import table.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_IAT",
+            "documentation": "Data directory for image Import Address Table.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT",
+            "documentation": "Data directory for Delayed Import Table. Structure of the delayed import table is linker-dependent. Microsoft version of delayed imports is described in the souces \"delayimp.h\" and \"delayimp.cpp\", which can be found in MS Visual Studio 2008 CRT sources.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR",
+            "documentation": "Data directory for .NET headers.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_CNT_CODE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_CNT_INITIALIZED_DATA",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_CNT_UNINITIALIZED_DATA",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_GPREL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_MEM_16BIT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_LNK_NRELOC_OVFL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_MEM_DISCARDABLE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_MEM_NOT_CACHED",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_MEM_NOT_PAGED",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_MEM_SHARED",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_MEM_EXECUTE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_MEM_READ",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_MEM_WRITE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_CURSOR",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_BITMAP",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_ICON",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_MENU",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_DIALOG",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_STRING",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_FONTDIR",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_FONT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_ACCELERATOR",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_RCDATA",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_MESSAGETABLE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_GROUP_CURSOR",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_GROUP_ICON",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_VERSION",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_DLGINCLUDE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_PLUGPLAY",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_VXD",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_ANICURSOR",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_ANIICON",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_HTML",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "RESOURCE_TYPE_MANIFEST",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "is_pe",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "machine",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_sections",
+            "documentation": "Number of sections in the PE.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "timestamp",
+            "documentation": "PE timestamp.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "pointer_to_symbol_table",
+            "documentation": "Value of IMAGE_FILE_HEADER::PointerToSymbolTable. Used when the PE image has COFF debug info.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_symbols",
+            "documentation": "Value of IMAGE_FILE_HEADER::NumberOfSymbols. Used when the PE image has COFF debug info.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size_of_optional_header",
+            "documentation": "Value of IMAGE_FILE_HEADER::SizeOfOptionalHeader. This is real size of the optional header and reflects differences between 32-bit and 64-bit optional header and number of data directories.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "characteristics",
+            "documentation": "Bitmap with PE FileHeader characteristics. Individual characteristics can be inspected by performing a bitwise AND operation with specific constants.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "entry_point",
+            "documentation": "Entry point raw offset or virtual address depending on whether YARA is scanning a file or process memory respectively. This is equivalent to the deprecated `entrypoint` keyword.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "image_base",
+            "documentation": "Image base relative virtual address.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_rva_and_sizes",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::NumberOfRvaAndSizes. This is the number of items in the IMAGE_OPTIONAL_HEADER::DataDirectory array.",
+            "type": "i"
+        },
+        {
+            "kind": "dictionary",
+            "name": "version_info",
+            "documentation": "Dictionary containing the PE's version information. Typical keys are: Comments, CompanyName, FileDescription, FileVersion, InternalName, LegalCopyright, LegalTrademarks, OriginalFilename, ProductName, ProductVersion. For more information refer to: ```Example: pe.version_info[\"CompanyName\"] contains \"Microsoft\"```",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "opthdr_magic",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::Magic.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size_of_code",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::SizeOfCode. This is the sum of raw data sizes in code sections.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size_of_initialized_data",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::SizeOfInitializedData.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size_of_uninitialized_data",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::SizeOfUninitializedData.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "base_of_code",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::BaseOfCode.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "base_of_data",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::BaseOfData. This field only exists in 32-bit PE files.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "section_alignment",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::SectionAlignment. When Windows maps a PE image to memory, all raw sizes (including size of header) are aligned up to this value.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "file_alignment",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::FileAlignment. All raw data sizes of sections in the PE image are aligned to this value.",
+            "type": "i"
+        },
+        {
+            "kind": "struct",
+            "name": "linker_version",
+            "documentation": "An object with two integer attributes, one for each major and minor linker version.",
+            "attributes": [
+                {
+                    "kind": "value",
+                    "name": "major",
+                    "documentation": "Major linker version.",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "minor",
+                    "documentation": "Minor linker version.",
+                    "type": "i"
+                }
+            ]
+        },
+        {
+            "kind": "struct",
+            "name": "os_version",
+            "documentation": "An object with two integer attributes, one for each major and minor OS version.",
+            "attributes": [
+                {
+                    "kind": "value",
+                    "name": "major",
+                    "documentation": "Major OS version.",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "minor",
+                    "documentation": "Minor OS version.",
+                    "type": "i"
+                }
+            ]
+        },
+        {
+            "kind": "struct",
+            "name": "image_version",
+            "documentation": "An object with two integer attributes, one for each major and minor image version.",
+            "attributes": [
+                {
+                    "kind": "value",
+                    "name": "major",
+                    "documentation": "Major image version.",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "minor",
+                    "documentation": "Minor image version.",
+                    "type": "i"
+                }
+            ]
+        },
+        {
+            "kind": "struct",
+            "name": "subsystem_version",
+            "documentation": "An object with two integer attributes, one for each major and minor subsystem version.",
+            "attributes": [
+                {
+                    "kind": "value",
+                    "name": "major",
+                    "documentation": "Major subsystem version.",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "minor",
+                    "documentation": "Minor subsystem version.",
+                    "type": "i"
+                }
+            ]
+        },
+        {
+            "kind": "value",
+            "name": "win32_version_value",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::Win32VersionValue.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size_of_image",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::SizeOfImage. This is the total virtual size of header and all sections.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size_of_headers",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::SizeOfHeaders. This is the raw data size of the PE headers including DOS header, file header, optional header and all section headers. When PE is mapped to memory, this value is subject to aligning up to SectionAlignment.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "checksum",
+            "documentation": "Integer with the \"PE checksum\" as stored in the OptionalHeader",
+            "type": "i"
+        },
+        {
+            "kind": "function",
+            "name": "calculate_checksum",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [],
+                    "documentation": "Function that calculates the \"PE checksum\" ```Example: pe.checksum == pe.calculate_checksum()```"
+                }
+            ]
+        },
+        {
+            "kind": "value",
+            "name": "subsystem",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "dll_characteristics",
+            "documentation": "Bitmap with PE OptionalHeader DllCharacteristics. Do not confuse these flags with the PE FileHeader Characteristics. Individual characteristics can be inspected by performing a bitwise AND operation with specific constants.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size_of_stack_reserve",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::SizeOfStackReserve. This is the default amount of virtual memory that will be reserved for stack.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size_of_stack_commit",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::SizeOfStackCommit. This is the default amount of virtual memory that will be allocated for stack.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size_of_heap_reserve",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::SizeOfHeapReserve. This is the default amount of virtual memory that will be reserved for main process heap.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size_of_heap_commit",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::SizeOfHeapCommit. This is the default amount of virtual memory that will be allocated for main process heap.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "loader_flags",
+            "documentation": "Value of IMAGE_OPTIONAL_HEADER::LoaderFlags.",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "data_directories",
+            "documentation": "A zero-based array of data directories. Each data directory contains virtual address and length of the appropriate data directory. Example:  ```pe.data_directories[pe.IMAGE_DIRECTORY_ENTRY_EXPORT].virtual_address != 0``` Each data directory has the following entries:",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "data_directories",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "virtual_address",
+                        "documentation": "Relative virtual address (RVA) of the PE data directory. If this is zero, then the data directory is missing. Note that for digital signature, this is the file offset, not RVA.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "size",
+                        "documentation": "Size of the PE data directory, in bytes.",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "array",
+            "name": "sections",
+            "documentation": "Individual section characteristics can be inspected using a bitwise AND operation with specific constants. Examples: ```pe.sections[0].name == \".text\"```, ```pe.sections[1].characteristics & pe.SECTION_CNT_CODE```",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "sections",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "name",
+                        "documentation": "Section name.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "characteristics",
+                        "documentation": "Section characteristics.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "virtual_address",
+                        "documentation": "Section virtual address.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "virtual_size",
+                        "documentation": "Section virtual size.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "raw_data_offset",
+                        "documentation": "Section raw offset.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "raw_data_size",
+                        "documentation": "Section raw size.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "pointer_to_relocations",
+                        "documentation": "Value of IMAGE_SECTION_HEADER::PointerToRelocations.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "pointer_to_line_numbers",
+                        "documentation": "Value of IMAGE_SECTION_HEADER::PointerToLinenumbers.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "number_of_relocations",
+                        "documentation": "Value of IMAGE_SECTION_HEADER::NumberOfRelocations.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "number_of_line_numbers",
+                        "documentation": "Value of IMAGE_SECTION_HEADER::NumberOfLineNumbers.",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "struct",
+            "name": "overlay",
+            "documentation": "A structure containing members offset and size.",
+            "attributes": [
+                {
+                    "kind": "value",
+                    "name": "offset",
+                    "documentation": "Overlay section offset.",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "size",
+                    "documentation": "Overlay section size.",
+                    "type": "i"
+                }
+            ]
+        },
+        {
+            "kind": "struct",
+            "name": "rich_signature",
+            "documentation": "Structure containing information about the PE's rich signature as documented in http://www.ntcore.com/files/richsign.htm.",
+            "attributes": [
+                {
+                    "kind": "value",
+                    "name": "offset",
+                    "documentation": "Offset where the rich signature starts. It will be undefined if the file doesn't have a rich signature.",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "length",
+                    "documentation": "Length of the rich signature, not including the final 'Rich' marker.",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "key",
+                    "documentation": "Key used to encrypt the data with XOR.",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "raw_data",
+                    "documentation": "Raw data as it appears in the file.",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "clear_data",
+                    "documentation": "Data after being decrypted by XORing it with the key.",
+                    "type": "i"
+                },
+                {
+                    "kind": "function",
+                    "name": "version",
+                    "documentation": "Function returning a sum of count values of all matching version records. Provide the optional toolid argument to only match when both match for one entry. More information can be found here: http://www.ntcore.com/files/richsign.htm Note: Prior to version 3.11.0, this function returns only a boolean value (0 or 1) if the given version and optional toolid is present in an entry. ```Example: pe.rich_signature.version(24215, 261) == 61```",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "i",
+                                    "name": "version"
+                                }
+                            ],
+                            "documentation": "Function returning a sum of count values of all matching `version` records."
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "type": "i",
+                                    "name": "version"
+                                },
+                                {
+                                    "type": "i",
+                                    "name": "toolid"
+                                }
+                            ],
+                            "documentation": "Function returning a sum of count values of all matching `version` records that also match the specified `toolid`."
+                        }
+                    ]
+                },
+                {
+                    "kind": "function",
+                    "name": "toolid",
+                    "return_type": "i",
+                    "documentation": "Function returning a sum of count values of all matching toolid records. Provide the optional version argument to only match when both match for one entry. More information can be found here: http://www.ntcore.com/files/richsign.htm Note: Prior to version 3.11.0, this function returns only a boolean value (0 or 1) if the given toolid and optional version is present in an entry. ```Example: pe.rich_signature.toolid(170, 40219) >= 99```",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "i",
+                                    "name": "toolid"
+                                }
+                            ]
+                        },
+                        {
+                            "arguments": [
+                                {
+                                    "type": "i",
+                                    "name": "toolid"
+                                },
+                                {
+                                    "type": "i",
+                                    "name": "version"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "imphash",
+            "return_type": "s",
+            "overloads": [
+                {
+                    "arguments": [],
+                    "documentation": "Function returning the import hash or imphash for the PE. The imphash is a MD5 hash of the PE's import table after some normalization. The imphash for a PE can be also computed with pefile and you can find more information in Mandiant's blog."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "section_index",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "name"
+                        }
+                    ],
+                    "documentation": "Function returning the index into the sections array for the section that has name. name is case sensitive."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "addr"
+                        }
+                    ],
+                    "documentation": "Function returning the index into the sections array for the section that has addr. addr can be an offset into the file or a memory address."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "exports",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "function_name"
+                        }
+                    ],
+                    "documentation": "Function returning true if the PE exports function_name or false otherwise."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "ordinal"
+                        }
+                    ],
+                    "documentation": "Function returning true if the PE exports ordinal or false otherwise."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "r",
+                            "name": "regular_expression"
+                        }
+                    ],
+                    "documentation": "Function returning true if the PE exports regular_expression or false otherwise."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "imports",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "dll_name"
+                        },
+                        {
+                            "type": "s",
+                            "name": "function_name"
+                        }
+                    ],
+                    "documentation": "Function returning true if the PE imports function_name from dll_name, or false otherwise. dll_name is case insensitive."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "dll_name"
+                        },
+                        {
+                            "type": "i",
+                            "name": "ordinal"
+                        }
+                    ],
+                    "documentation": "Function returning true if the PE imports ordinal from dll_name, or false otherwise. dll_name is case insensitive."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "dll_name"
+                        }
+                    ],
+                    "documentation": "Function returning the number of functions from the dll_name, in the PE imports. dll_name is case insensitive."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "r",
+                            "name": "dll_regexp"
+                        },
+                        {
+                            "type": "r",
+                            "name": "function_regexp"
+                        }
+                    ],
+                    "documentation": "Function returning the number of functions from the PE imports where a function name matches function_regexp and a DLL name matches dll_regexp. Both dll_regexp and function_regexp are case sensitive unless you use the \"/i\" modifier in the regexp."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "locale",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "locale_identifier"
+                        }
+                    ],
+                    "documentation": "Function returning true if the PE has a resource with the specified locale identifier. Locale identifiers are 16-bit integers."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "language",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "language_identifier"
+                        }
+                    ],
+                    "documentation": "Function returning true if the PE has a resource with the specified language identifier. Language identifiers are 8-bit integers."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "is_dll",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [],
+                    "documentation": "Function returning true if the PE is a DLL."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "is_32bit",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [],
+                    "documentation": "Function returning true if the PE is 32bits."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "is_64bit",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [],
+                    "documentation": "Function returning true if the PE is 64bits."
+                }
+            ]
+        },
+        {
+            "kind": "value",
+            "name": "number_of_imports",
+            "documentation": "Number of imports in the PE.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_exports",
+            "documentation": "Number of exports in the PE.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "resource_timestamp",
+            "documentation": "Resource timestamp. This is stored as an integer.",
+            "type": "i"
+        },
+        {
+            "kind": "struct",
+            "name": "resource_version",
+            "documentation": "An object with two integer attributes, major and minor versions.",
+            "attributes": [
+                {
+                    "kind": "value",
+                    "name": "major",
+                    "documentation": "Major resource version.",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "minor",
+                    "documentation": "Minor resource version.",
+                    "type": "i"
+                }   
+            ]
+        },
+        {
+            "kind": "array",
+            "name": "resources",
+            "documentation": "A zero-based array of resource objects, one for each resource the PE has. Individual resources can be accessed by using the [] operator.All resources must have a type, id (name), and language specified. They can be either an integer or string, but never both, for any given level. ```Example: pe.resources[0].type == pe.RESOURCE_TYPE_RCDATA``` ```Example: pe.resources[0].name_string == \"F\\x00I\\x00L\\x00E\\x00```\"",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "resources",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "offset",
+                        "documentation": "Offset for the resource data.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "length",
+                        "documentation": "Length of the resource data.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "type",
+                        "documentation": "Type of the resource (integer).",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "id",
+                        "documentation": "ID of the resource (integer).",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "language",
+                        "documentation": "Language of the resource (integer).",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "type_string",
+                        "documentation": "Type of the resource as a string, if specified.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "name_string",
+                        "documentation": "Name of the resource as a string, if specified.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "language_string",
+                        "documentation": "Language of the resource as a string, if specified.",
+                        "type": "s"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "value",
+            "name": "number_of_resources",
+            "documentation": "Number of resources in the PE.",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "signatures",
+            "documentation": "A zero-based array of signature objects, one for each authenticode signature in the PE file. Usually PE files have a single signature.",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "signatures",
+                "documentation": "A zero-based array of signature objects, one for each authenticode signature in the PE file. Usually PE files have a single signature.",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "thumbprint",
+                        "documentation": "A string containing the thumbprint of the signature.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "issuer",
+                        "documentation": "A string containing information about the issuer.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "subject",
+                        "documentation": "A string containing information about the subject.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "version",
+                        "documentation": "Version number.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "algorithm",
+                        "documentation": "Algorithm used for this signature. Usually \"sha1WithRSAEncryption\".",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "serial",
+                        "documentation": "A string containing the serial number. This is an example: 52:00:e5:aa:25:56:fc:1a:86:ed:96:c9:d4:4b:33:c7",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "not_before",
+                        "documentation": "Unix timestamp on which the validity period for this signature begins.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "not_after",
+                        "documentation": "Unix timestamp on which the validity period for this signature ends.",
+                        "type": "i"
+                    },
+                    {
+                       "kind": "function",
+                       "name": "valid_on",
+                       "return_type": "i",
+                       "overloads": [
+                           {
+                               "arguments": [
+                                    {
+                                        "type": "i",
+                                        "name": "file"
+                                    }
+                                ],
+                               "documentation": "    Function returning true if the signature was valid on the date indicated by timestamp. The following sentence: ```pe.signatures[n].valid_on(timestamp)``` Is equivalent to: ```timestamp >= pe.signatures[n].not_before and timestamp <= pe.signatures[n].not_after```"
+                           }
+                       ]
+                   }
+                ]
+            }
+        },
+        {
+            "kind": "value",
+            "name": "number_of_signatures",
+            "documentation": "Number of authenticode signatures in the PE.",
+            "type": "i"
+        },
+        {
+            "kind": "function",
+            "name": "iconhash",
+            "return_type": "s",
+            "overloads": [
+                {
+                    "arguments": [],
+                    "documentation": ""
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "rva_to_offset",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "addr"
+                        }
+                    ],
+                    "documentation": "Function returning the file offset for RVA addr. Be careful to pass relative addresses here and not absolute addresses, like pe.entry_point when scanning a process. Example: ```pe.rva_to_offset(pe.sections[0].virtual_address) == pe.sections[0].raw_data_offset``` This example will make sure the offset for the virtual address in the first section equals the file offset for that section."
+                }
+            ]
+        }
+    ]
+}

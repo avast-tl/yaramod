@@ -1,0 +1,818 @@
+{
+    "kind": "struct",
+    "name": "elf",
+    "attributes": [
+        {
+            "kind": "value",
+            "name": "ET_NONE",
+            "documentation": "No file type.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ET_REL",
+            "documentation": "Relocatable file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ET_EXEC",
+            "documentation": "Executable file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ET_DYN",
+            "documentation": "Shared object file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ET_CORE",
+            "documentation": "Core file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_NONE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_M32",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_SPARC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_386",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_68K",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_88K",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_860",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_MIPS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_MIPS_RS3_LE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_PPC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_PPC64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_ARM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_X86_64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "EM_AARCH64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_NULL",
+            "documentation": "This value marks the section as inactive; it does not have an associated section. Other members of the section header have undefined values.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_PROGBITS",
+            "documentation": "The section holds information defined by the program, whose format and meaning are determined solely by the program.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_SYMTAB",
+            "documentation": "The section holds a symbol table.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_STRTAB",
+            "documentation": "The section holds a string table. An object file may have multiple string table sections.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_RELA",
+            "documentation": "The section holds relocation entries.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_HASH",
+            "documentation": "The section holds a symbol hash table.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_DYNAMIC",
+            "documentation": "The section holds information for dynamic linking.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_NOTE",
+            "documentation": "The section holds information that marks the file in some way.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_NOBITS",
+            "documentation": "A section of this type occupies no space in the file but otherwise resembles :c:type:`SHT_PROGBITS`.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_REL",
+            "documentation": "The section holds relocation entries.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_SHLIB",
+            "documentation": "This section type is reserved but has unspecified semantics.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHT_DYNSYM",
+            "documentation": "This section holds dynamic linking symbols.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHF_WRITE",
+            "documentation": "The section contains data that should be writable during process execution.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHF_ALLOC",
+            "documentation": "The section occupies memory during process execution. Some control sections do not reside in the memory image of an object file; this attribute is off for those sections.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SHF_EXECINSTR",
+            "documentation": "The section contains executable machine instructions. Example: ```elf.sections[2].flags & elf.SHF_WRITE```.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "type",
+            "documentation": "Integer with one of the following values: ET_NONE, ET_REL, ET_EXEC, ET_DYN, ET_CORE.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "machine",
+            "documentation": "Integer with one of the following values: EM_M32, EM_SPARC, EM_386, EM_68K, EM_88K, EM_860, EM_MIPS, EM_MIPS_RS3_LE, EM_PPC EM_PPC64, EM_ARM, EM_X86_64, EM_AARCH64.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "entry_point",
+            "documentation": "Entry point raw offset or virtual address depending on whether YARA is scanning a file or process memory respectively. This is equivalent to the deprecated ``entrypoint`` keyword.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_sections",
+            "documentation": "Number of sections in the ELF file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "sh_offset",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "sh_entry_size",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_segments",
+            "documentation": "Number of segments in the ELF file.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ph_offset",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ph_entry_size",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "sections",
+            "documentation": "A zero-based array of section objects, one for each section the ELF has. Individual sections can be accessed by using the [] operator.",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "sections",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "type",
+                        "documentation": "Integer with one of the following values: SHT_NULL SHT_PROGBITS SHT_SYMTAB SHT_STRTAB SHT_RELA SHT_HASH SHT_DYNAMIC SHT_NOTE SHT_NOBITS SHT_REL SHT_SHLIB SHT_DYNSYM.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "flags",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "address",
+                        "documentation": "The virtual address the section starts at.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "name",
+                        "documentation": "Section's name. Example: ```elf.sections[3].name == \".bss\"```",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "offset",
+                        "documentation": "Offset from the beginning of the file to the first byte in the section. One section type, :c:type:`SHT_NOBITS` described below, occupies no space in the file, and its :c:member:`offset` member locates the conceptual placement in the file.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "size",
+                        "documentation": "Section's size in bytes. Unless the section type is SHT_NOBITS, the section occupies sh_size bytes in the file. A section of :c:type:`SHT_NOBITS` may have a non-zero size, but it occupies no space in the file.",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "value",
+            "name": "PT_NULL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PT_LOAD",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PT_DYNAMIC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PT_INTERP",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PT_NOTE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PT_SHLIB",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PT_PHDR",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PT_TLS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PT_GNU_EH_FRAME",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PT_GNU_STACK",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_NULL",
+            "documentation": "",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "DT_NEEDED",
+            "documentation": "",
+            "type": "i"
+        },
+	    {
+            "kind": "value",
+            "name": "DT_PLTRELSZ",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_PLTGOT",
+            "documentation": "",
+            "type": "i"
+        },
+	    {
+            "kind": "value",
+            "name": "DT_HASH",
+            "documentation": "",
+            "type": "i"
+        },
+	    {
+            "kind": "value",
+            "name": "DT_STRTAB",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_SYMTAB",
+            "documentation": "",
+            "type": "i"
+        },
+	    {
+            "kind": "value",
+            "name": "DT_RELA",
+            "documentation": "",
+            "type": "i"
+        },
+	    {
+            "kind": "value",
+            "name": "DT_RELASZ",
+            "documentation": "",
+            "type": "i"
+        },
+	    {
+            "kind": "value",
+            "name": "DT_RELAENT",
+            "documentation": "",
+            "type": "i"
+        },
+	    {
+            "kind": "value",
+            "name": "DT_STRSZ",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_SYMENT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_INIT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_FINI",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_SONAME",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_RPATH",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_SYMBOLIC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_REL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_RELSZ",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_RELENT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_PLTREL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_DEBUG",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_TEXTREL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_JMPREL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_BIND_NOW",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_INIT_ARRAY",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_FINI_ARRAY",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_INIT_ARRAYSZ",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_FINI_ARRAYSZ",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_RUNPATH",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_FLAGS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "DT_ENCODING",
+            "documentation": "",
+            "type": "i"
+        },
+
+        {
+            "kind": "value",
+            "name": "STT_NOTYPE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "STT_OBJECT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "STT_FUNC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "STT_SECTION",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "STT_FILE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "STT_COMMON",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "STT_TLS",
+            "documentation": "",
+            "type": "i"
+        },
+
+        {
+            "kind": "value",
+            "name": "STB_LOCAL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "STB_GLOBAL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "STB_WEAK",
+            "documentation": "",
+            "type": "i"
+        },
+
+        {
+            "kind": "value",
+            "name": "PF_X",
+            "documentation": "The segment is executable.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PF_W",
+            "documentation": "The segment is writable.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "PF_R",
+            "documentation": "The segment is readable.",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "segments",
+            "documentation": "A zero-based array of segment objects, one for each segment the ELF has. Individual segments can be accessed by using the [] operator.",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "segments",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "type",
+                        "documentation": "Type of segment indicated by one of the following values: PT_NULL, PT_LOAD, PT_DYNAMIC, PT_INTERP, PT_NOTE, PT_SHLIB, PT_PHDR, PT_LOPROC, PT_HIPROC, PT_GNU_STACK.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "flags",
+                        "documentation": "A combination of the following segment flags: PF_R, PF_W, PF_X.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "offset",
+                        "documentation": "Offset from the beginning of the file where the segment resides.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "virtual_address",
+                        "documentation": "Virtual address at which the segment resides in memory.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "physical_address",
+                        "documentation": "On systems for which physical addressing is relevant, contains the segment's physical address.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "file_size",
+                        "documentation": "Number of bytes in the file image of the segment.  It may be zero.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "memory_size",
+                        "documentation": "In-memory segment size.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "alignment",
+                        "documentation": "Value to which the segments are aligned in memory and in the file.",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "value",
+            "name": "dynamic_section_entries",
+            "documentation": "Number of entries in the dynamic section in the ELF file.",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "dynamic",
+            "documentation": "A zero-based array of dynamic objects, one for each entry in found in the ELF's dynamic section. Individual dynamic objects can be accessed by using the [] operator.",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "dynamic",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "type",
+                        "documentation": "Value that describes the type of dynamic section. Builtin values are: DT_NULL, DT_NEEDED, DT_PLTRELSZ, DT_PLTGOT, DT_HASH, DT_STRTAB, DT_SYMTAB, DT_RELA, DT_RELASZ, DT_RELAENT, DT_STRSZ, DT_SYMENT, DT_INIT, DT_FINI, DT_SONAME, DT_RPATH, DT_SYMBOLIC, DT_REL, DT_RELSZ, DT_RELENT, DT_PLTREL, DT_DEBUG, DT_TEXTREL, DT_JMPREL, DT_BIND_NOW, DT_INIT_ARRAY, DT_FINI_ARRAY, DT_INIT_ARRAYSZ, DT_FINI_ARRAYSZ, DT_RUNPATH, DT_FLAGS, DT_ENCODING.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "val",
+                        "documentation": "A value associated with the given type. The type of value (address, size, etc.) is dependant on the type of dynamic entry.",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "value",
+            "name": "symtab_entries",
+            "documentation": "Number of entries in the symbol table found in the ELF file.",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "symtab",
+            "documentation": "A zero-based array of symbol objects, one for each entry in found in the ELF's SYMBTAB. Individual symbol objects can be accessed by using the [] operator.",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "symtab",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "name",
+                        "documentation": "The symbol's name.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "value",
+                        "documentation": "A value associated with the symbol. Generally a virtual address.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "size",
+                        "documentation": "The symbol's size.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "type",
+                        "documentation": "The type of symbol. Built values are: STT_NOTYPE, STT_OBJECT, STT_FUNC, STT_SECTION, STT_FILE, STT_COMMON, STT_TLS.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "bind",
+                        "documentation": "The binding of the symbol. Builtin values are: STB_LOCAL, STB_GLOBAL, STB_WEAK.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "shndx",
+                        "documentation": "The section index which the symbol is associated with.",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "function",
+            "name": "symtab_symbol",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": ""
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "r",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": ""
+                }
+            ]
+        }
+    ]
+}

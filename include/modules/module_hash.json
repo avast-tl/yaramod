@@ -1,0 +1,151 @@
+{
+    "kind": "struct",
+    "name": "hash",
+    "attributes": [
+        {
+            "kind": "function",
+            "name": "md5",
+            "return_type": "s",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "offset"
+                        },
+                        {
+                            "type": "i",
+                            "name": "size"
+                        }
+                    ],
+                    "documentation": "Returns the MD5 hash for *size* bytes starting at *offset*. When scanning a running process the *offset* argument should be a virtual address within the process address space. The returned string is always in lowercase. Example: ```hash.md5(0, filesize) == \"feba6c919e3797e7778e8f2e85fa033d\"```"
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "string"
+                        }
+                    ],
+                    "documentation": "Returns the MD5 hash for the given string. Example: ```hash.md5(\"dummy\") == \"275876e34cf609db118f3d84b799a790\"```"
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "sha1",
+            "return_type": "s",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "offset"
+                        },
+                        {
+                            "type": "i",
+                            "name": "size"
+                        }
+                    ],
+                    "documentation": "Returns the SHA1 hash for the *size* bytes starting at *offset*. When scanning a running process the *offset* argument should be a virtual address within the process address space. The returned string is always in lowercase."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "string"
+                        }
+                    ],
+                    "documentation": "Returns the SHA1 hash for the given string."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "sha256",
+            "return_type": "s",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "offset"
+                        },
+                        {
+                            "type": "i",
+                            "name": "size"
+                        }
+                    ],
+                    "documentation": "Returns the SHA256 hash for the *size* bytes starting at *offset*. When scanning a running process the *offset* argument should be a virtual address within the process address space. The returned string is always in lowercase."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "string"
+                        }
+                    ],
+                    "documentation": "Returns the SHA256 hash for the given string."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "checksum32",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "offset"
+                        },
+                        {
+                            "type": "i",
+                            "name": "size"
+                        }
+                    ],
+                    "documentation": "Returns a 32-bit checksum for the *size* bytes starting at *offset*. The checksum is just the sum of all the bytes (unsigned)."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "string"
+                        }
+                    ],
+                    "documentation": "Returns a 32-bit checksum for the given string. The checksum is just the sum of all the bytes in the string (unsigned)."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "crc32",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "offset"
+                        },
+                        {
+                            "type": "i",
+                            "name": "size"
+                        }
+                    ],
+                    "documentation": "Returns a crc32 checksum for the *size* bytes starting at *offset*."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "string"
+                        }
+                    ],
+                    "documentation": "Returns a crc32 checksum for the given string."
+                }
+            ]
+        }
+    ]
+}

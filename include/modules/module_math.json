@@ -1,0 +1,229 @@
+{
+    "kind": "struct",
+    "name": "math",
+    "attributes": [
+        {
+            "kind": "value",
+            "name": "MEAN_BYTES",
+            "documentation": "",
+            "type": "f"
+        },
+        {
+            "kind": "function",
+            "name": "in_range",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "f",
+                            "name": "test"
+                        },
+                        {
+                            "type": "f",
+                            "name": "lower"
+                        },
+                        {
+                            "type": "f",
+                            "name": "upper"
+                        }
+                    ],
+                    "documentation": "Returns true if the *test* value is between *lower* and *upper* values. The comparisons are inclusive. Example: ```math.in_range(math.deviation(0, filesize, math.MEAN_BYTES), 63.9, 64,1)```"
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "deviation",
+            "return_type": "f",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "offset"
+                        },
+                        {
+                            "type": "i",
+                            "name": "size"
+                        },
+                        {
+                            "type": "f",
+                            "name": "mean"
+                        }
+                    ],
+                    "documentation": "Returns the deviation from the mean for the *size* bytes starting at *offset*. When scanning a running process the *offset* argument should be a virtual address within the process address space. The returned value is a float. The mean of an equally distributed random sample of bytes is 127.5, which is available as the constant math.MEAN_BYTES. Example: ```math.deviation(0, filesize, math.MEAN_BYTES) == 64.0```"
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "string"
+                        },
+                        {
+                            "type": "f",
+                            "name": "mean"
+                        }
+                    ],
+                    "documentation": "Return the deviation from the mean for the given string."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "mean",
+            "return_type": "f",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": ""
+                        },
+                        {
+                            "type": "i",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": "Returns the mean for the *size* bytes starting at *offset*. When scanning a running process the *offset* argument should be a virtual address within the process address space. The returned value is a float. Example: ```math.mean(0, filesize) < 72.0```"
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": "Return the mean for the given string."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "serial_correlation",
+            "return_type": "f",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": ""
+                        },
+                        {
+                            "type": "i",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": "Returns the serial correlation for the *size* bytes starting at *offset*. When scanning a running process the *offset* argument should be a virtual address within the process address space. The returned value is a float between 0.0 and 1.0. Example: ```math.serial_correlation(0, filesize) < 0.2```"
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": "Return the serial correlation for the given string."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "monte_carlo_pi",
+            "return_type": "f",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": ""
+                        },
+                        {
+                            "type": "i",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": "Returns the percentage away from Pi for the *size* bytes starting at *offset* when run through the Monte Carlo from Pi test. When scanning a running process the *offset* argument should be a virtual address within the process address space. The returned value is a float. Example: ```math.monte_carlo_pi(0, filesize) < 0.07```"
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": "Return the percentage away from Pi for the given string."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "entropy",
+            "return_type": "f",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "offset"
+                        },
+                        {
+                            "type": "i",
+                            "name": "size"
+                        }
+                    ],
+                    "documentation": "Returns the entropy for *size* bytes starting at *offset*. When scanning a running process the *offset* argument should be a virtual address within the process address space. The returned value is a float. Example: ```math.entropy(0, filesize) >= 7```"
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": "Returns the entropy for the given string. ```Example: math.entropy(\"dummy\") > 7```"
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "min",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "int"
+                        },
+                        {
+                            "type": "i",
+                            "name": "int"
+                        }
+                    ],
+                    "documentation": "Returns the minimum of two unsigned integer values."
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "max",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "int"
+                        },
+                        {
+                            "type": "i",
+                            "name": "int"
+                        }
+                    ],
+                    "documentation": "Returns the maximum of two unsigned integer values."
+                }
+            ]
+        }
+    ]
+}

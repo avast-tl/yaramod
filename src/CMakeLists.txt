@@ -12,22 +12,8 @@ set(SOURCES
 	types/hex_string.cpp
 	types/literal.cpp
 	types/meta.cpp
-	types/modules/androguard_module.cpp
-	types/modules/cuckoo_module.cpp
-	types/modules/custom_module.cpp
-	types/modules/dex_module.cpp
-	types/modules/dotnet_module.cpp
-	types/modules/elf_module.cpp
-	types/modules/hash_module.cpp
-	types/modules/macho_module.cpp
-	types/modules/magic_module.cpp
-	types/modules/math_module.cpp
-	types/modules/metadata_module.cpp
 	types/modules/module.cpp
 	types/modules/modules_pool.cpp
-	types/modules/pe_module.cpp
-	types/modules/phish_module.cpp
-	types/modules/time_module.cpp
 	types/plain_string.cpp
 	types/rule.cpp
 	types/token.cpp
