@@ -39,7 +39,7 @@ ModulesPool::ModulesPool(const std::string& directory)
 		auto itr = _knownModules.find(name);
 		if (itr == _knownModules.end())
 		{
-			auto module = std::make_shared<CustomModule>(name, path);
+			auto module = std::make_shared<Module>(name, path);
 			_knownModules.emplace(std::make_pair(name, std::move(module)));
 		}
 		else
