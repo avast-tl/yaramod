@@ -2963,35 +2963,6 @@ rule dummy_rule
 }
 
 TEST_F(ParserTests,
-AndroguardModuleUnrecognized) {
-	prepareInput(
-R"(
-import "androguard"
-
-rule dummy_rule
-{
-	condition:
-		androguard.max_sdk > androguard.signature.hits("dummy")
-}
-)");
-
-	ParserDriver driverNoAvastSymbols(ImportFeatures::VirusTotal);
-	std::stringstream input2(input_text);
-
-	try
-	{
-		driverNoAvastSymbols.parse(input2, ParserMode::Regular);
-		FAIL() << "Parser did not throw an exception.";
-	}
-	catch (const ParserError& err)
-	{
-		EXPECT_EQ(0u, driverNoAvastSymbols.getParsedFile().getRules().size());
-		ASSERT_EQ(0u, driverNoAvastSymbols.getParsedFile().getImports().size());
-		EXPECT_EQ("Error at 2.8-19: Unrecognized module 'androguard' imported", err.getErrorMessage());
-	}
-}
-
-TEST_F(ParserTests,
 PhishModuleWorks) {
 	prepareInput(
 R"(
@@ -3015,35 +2986,6 @@ rule dummy_rule
 	EXPECT_EQ("5", rule->getCondition()->getLastTokenIt()->getPureText());
 
 	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-PhishModuleUnrecognized) {
-	prepareInput(
-R"(
-import "phish"
-
-rule dummy_rule
-{
-	condition:
-		phish.file_contents.input.ids_hash == "dummy_hash"
-}
-)");
-
-	ParserDriver driverNoAvastSymbols(ImportFeatures::VirusTotal);
-	std::stringstream input2(input_text);
-
-	try
-	{
-		driverNoAvastSymbols.parse(input2, ParserMode::Regular);
-		FAIL() << "Parser did not throw an exception.";
-	}
-	catch (const ParserError& err)
-	{
-		EXPECT_EQ(0u, driverNoAvastSymbols.getParsedFile().getRules().size());
-		ASSERT_EQ(0u, driverNoAvastSymbols.getParsedFile().getImports().size());
-		EXPECT_EQ("Error at 2.8-14: Unrecognized module 'phish' imported", err.getErrorMessage());
-	}
 }
 
 TEST_F(ParserTests,
@@ -3072,35 +3014,6 @@ rule dummny_rule
 
 	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
 
-}
-
-TEST_F(ParserTests,
-MetadataModuleUnrecognized) {
-	prepareInput(
-R"(
-import "metadata"
-
-rule dummy_rule
-{
-	condition:
-		metadata.file.name("filename.txt")
-}
-)");
-
-	ParserDriver driverNoAvastSymbols(ImportFeatures::VirusTotal);
-	std::stringstream input2(input_text);
-
-try
-	{
-		driverNoAvastSymbols.parse(input2);
-		FAIL() << "Parser did not throw an exception.";
-	}
-	catch (const ParserError& err)
-	{
-		EXPECT_EQ(0u, driverNoAvastSymbols.getParsedFile().getRules().size());
-		ASSERT_EQ(1u, driverNoAvastSymbols.getParsedFile().getImports().size());
-		EXPECT_EQ("Error at 7.17-20: Unrecognized identifier 'name' referenced", err.getErrorMessage());
-	}
 }
 
 TEST_F(ParserTests,
@@ -3155,40 +3068,6 @@ rule cuckoo_module
 	EXPECT_EQ(")", rule->getCondition()->getLastTokenIt()->getPureText());
 
 	EXPECT_EQ(input_text, driver.getParsedFile().getTextFormatted());
-}
-
-TEST_F(ParserTests,
-CuckooModuleUnrecognized) {
-	prepareInput(
-R"(
-import "cuckoo"
-
-rule cuckoo_module
-{
-	strings:
-		$some_string = { 01 02 03 04 05 05 }
-	condition:
-		true and
-		cuckoo.network.http_request(/http:\/\/someone\.doingevil\.com/) and
-		$some_string and
-		cuckoo.network.http_request_body(/http:\/\/someone\.doingevil\.com/)
-}
-)");
-
-	ParserDriver driverNoAvastSymbols(ImportFeatures::VirusTotal);
-	std::stringstream input2(input_text);
-
-	try
-	{
-		driverNoAvastSymbols.parse(input2);
-		FAIL() << "Parser did not throw an exception.";
-	}
-	catch (const ParserError& err)
-	{
-		EXPECT_EQ(0u, driverNoAvastSymbols.getParsedFile().getRules().size());
-		ASSERT_EQ(1u, driverNoAvastSymbols.getParsedFile().getImports().size());
-		EXPECT_EQ("Error at 12.18-34: Unrecognized identifier 'http_request_body' referenced", err.getErrorMessage());
-	}
 }
 
 TEST_F(ParserTests,
