@@ -7,7 +7,7 @@
 #include <sstream>
 
 #include "yaramod/types/modules/modules_pool.h"
-// #include <filesystem>
+#include <filesystem>
 // #include "yaramod/utils/filesystem.h"
 
 
