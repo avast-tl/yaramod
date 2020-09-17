@@ -17,7 +17,7 @@ namespace yaramod {
  */
 class ModulesPool {
 public:
-	ModulesPool() : ModulesPool("/home/ts/dev/yaramod/include/modules") {}
+	ModulesPool() : ModulesPool("include/modules") {}
 	ModulesPool(const std::string& directory);
 
 	/**
@@ -33,10 +33,7 @@ public:
 		auto itr = _knownModules.find(name);
 		// Check that the module exists
 		if (itr == _knownModules.end())
-		{
-			std::cout << "Could not find module '" << name << "'" << std::endl;
 			return nullptr;
-		}
 
 		// Initialize the module if it is not already initialized.
 		if (!itr->second->isInitialized())

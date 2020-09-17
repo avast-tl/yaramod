@@ -311,8 +311,6 @@ bool Module::initialize()
 	for (const auto& filePath : _filePaths)
 	{
 		auto json = readJsonFile(filePath);
-		if (accessJsonString(json, "kind") != "struct")
-			throw ModuleError("The first level 'kind' entry must be 'struct' in " + filePath);
 		auto name = accessJsonString(json, "name");
 		if (name == std::string{})
 			throw ModuleError("Module name must be non-empty.");
