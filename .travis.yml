@@ -4,13 +4,14 @@ matrix:
   fast_finish: true
   include:
     - os: linux
-      dist: bionic
+      dist: focal
       addons:
         apt:
           packages:
             - build-essential
             - coreutils
             - python3-venv
+            - g++-9
       env:
         - DEPLOY_TO_PYPI=true  # Deploy to PyPI only from Linux build.
       before_script:
