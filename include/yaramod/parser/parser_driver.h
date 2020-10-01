@@ -78,6 +78,7 @@ public:
 	/// @name Constructors
 	/// @{
 	ParserDriver();
+	ParserDriver(const std::string& modulesDirectory);
 	/// @}
 
 	/// @name Destructor

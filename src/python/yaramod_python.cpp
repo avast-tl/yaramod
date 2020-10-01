@@ -654,6 +654,7 @@ void addBuilderClasses(py::module& module)
 {
 	py::class_<YaraFileBuilder>(module, "YaraFileBuilder")
 		.def(py::init<>())
+		.def(py::init<const std::string&>())
 		.def("get", [](YaraFileBuilder& self, bool recheck) {
 				return self.get(recheck, nullptr);
 			}, py::arg("recheck") = false)
@@ -819,6 +820,7 @@ void addMainClass(py::module& module)
 {
 	py::class_<Yaramod>(module, "Yaramod")
 		.def(py::init<>())
+		.def(py::init<const std::string&>())
 		.def("parse_file", &Yaramod::parseFile, py::arg("file_path"), py::arg("parser_mode") = ParserMode::Regular)
 		.def("parse_string", [](Yaramod& self, const std::string& str, ParserMode parserMode) {
 				std::istringstream stream(str);

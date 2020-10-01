@@ -1676,13 +1676,20 @@ void ParserDriver::initialize()
 
 /**
  * Constructor.
- *
- * @param parserMode Parsing mode.
- * @param features determines iff we want to use aditional Avast-specific symbols or VirusTotal-specific symbols in the imported modules
  */
 ParserDriver::ParserDriver()
+	: ParserDriver(".")
+{
+}
+
+/**
+ * Constructor.
+ *
+ * @param modulesDirectory A path to module files directory.
+ */
+ParserDriver::ParserDriver(const std::string& modulesDirectory)
 	: _strLiteral(), _indent(), _comment(), _regexpClass(), _parser(), _sectionStrings(false),
-	_escapedContent(false), _mode(ParserMode::Regular), _modules(),
+	_escapedContent(false), _mode(ParserMode::Regular), _modules(modulesDirectory),
 	_fileContexts(), _comments(), _includedFiles(), _includedFilesCache(), _valid(false),
 	_file(), _currentStrings(), _stringLoop(false), _localSymbols(), _lastRuleLocation(),
 	_lastRuleTokenStream(), _anonStringCounter(0)

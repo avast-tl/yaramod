@@ -41,6 +41,11 @@ public:
 		: _tokenStream(std::make_shared<TokenStream>())
 	{
 	}
+	YaraFileBuilder(const std::string& modulesDirectory)
+		: _tokenStream(std::make_shared<TokenStream>())
+		, _modules_pool(modulesDirectory)
+	{
+	}
 	/// @}
 
 	/// @name Build method

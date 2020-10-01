@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include "yaramod/types/modules/module.h"
+#include <filesystem>
 
 namespace yaramod {
 
@@ -43,6 +44,7 @@ public:
 	}
 
 private:
+	bool _addModule(std::filesystem::path path);
 	std::unordered_map<std::string, std::shared_ptr<Module>> _knownModules = {}; ///< Table of all known modules
 };
 
