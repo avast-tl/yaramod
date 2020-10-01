@@ -17,7 +17,7 @@ namespace yaramod {
  */
 class ModulesPool {
 public:
-	ModulesPool() : ModulesPool("include/modules") {}
+	ModulesPool() : ModulesPool(".") {}
 	ModulesPool(const std::string& directory);
 
 	/**
