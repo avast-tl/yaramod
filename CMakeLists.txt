@@ -46,3 +46,6 @@ endif()
 if(YARAMOD_DOCS)
 	add_subdirectory(docs)
 endif()
+
+install(FILES module_cuckoo.json
+	DESTINATION YARAMOD_SRC_BIN_DIR)

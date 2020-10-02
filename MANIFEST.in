@@ -5,3 +5,4 @@ recursive-include deps *
 recursive-include src *
 recursive-include include *.h
 include CMakeLists.txt
+include module_*.json

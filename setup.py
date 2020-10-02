@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 from distutils.command.build import build
-from setuptools import setup, Extension
+from setuptools import setup, Extension, find_packages
 from setuptools.command.build_ext import build_ext
 
 
@@ -181,5 +181,19 @@ setup(
         'build': BuildCommand,
         'build_ext': BuildExtCommand
     },
-    ext_modules=[Extension(name='yaramod', sources=[])]
+    ext_modules=[Extension(name='yaramod', sources=[])],
+
+    # packages=find_packages(),
+    # include_package_data=True,
+    # package_data={
+    #     '': ['module_cuckoo.json'],
+    # },
+#     data_files=[
+# #               ('bitmaps', ['bm/b1.gif', 'bm/b2.gif']),
+#         ('/opt/local/myproject/etc', ['myproject/config/settings.py', 'myproject/config/other_settings.special']),
+#         ('/opt/local/myproject/etc', [os.path.join('myproject/config', 'cool.huh')]),
+# #
+#         ('/opt/local/myproject/etc', [os.path.join('myproject/config', 'other_settings.xml')]),
+#         ('/opt/local/myproject/data', [os.path.join('myproject/words', 'word_set.txt')]),
+#     ],
 )
