@@ -69,6 +69,78 @@
                             "documentation": "Function returning true if the program sent a HTTP request to a URL matching the provided regular expression."
                         }
                     ]
+                },
+                {
+                    "kind": "function",
+                    "name": "host",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "IP address"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program contacted an IP address matching the provided regular expression. Example: ```cuckoo.network.host(/192\\.168\\.1\\.1/)```"
+                        }
+                    ]
+                },
+                {
+                    "kind": "function",
+                    "name": "http_user_agent",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "agent"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program sent a HTTP request with a user agent matching the provided regular expression. Example: ```cuckoo.network.http_user_agent(/MSIE 6\\.0/)```"
+                        }
+                    ]
+                },
+                {
+                    "kind": "function",
+                    "name": "tcp",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "IP address"
+                                },
+                                {
+                                    "type": "i",
+                                    "name": "port"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program contacted an IP address matching the provided regular expression, over TCP on the provided port number."
+                        }
+                    ]
+                },
+                {
+                    "kind": "function",
+                    "name": "udp",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r",
+                                    "name": "IP address"
+                                },
+                                {
+                                    "type": "i",
+                                    "name": "port"
+                                }
+                            ],
+                            "documentation": "Function returning true if the program contacted an IP address matching the provided regular expression, over UDP on the provided port number."
+                        }
+                    ]
                 }
             ]
         },

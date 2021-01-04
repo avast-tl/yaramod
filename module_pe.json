@@ -886,6 +886,18 @@
         },
         {
             "kind": "value",
+            "name": "dll_name",
+            "documentation": "The name of the DLL, if it exists in the export directory.",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "export_timestamp",
+            "documentation": "The timestamp the export data was created.",
+            "type": "i"
+        },
+        {
+            "kind": "value",
             "name": "size_of_stack_reserve",
             "documentation": "Value of IMAGE_OPTIONAL_HEADER::SizeOfStackReserve. This is the default amount of virtual memory that will be reserved for stack.",
             "type": "i"
@@ -1196,6 +1208,76 @@
         },
         {
             "kind": "function",
+            "name": "exports_index",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "s",
+                            "name": "function_name"
+                        }
+                    ],
+                    "documentation": "Function returning the index into the export_details array where the named function is, undefined otherwise."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": "ordinal"
+                        }
+                    ],
+                    "documentation": "Function returning the index into the export_details array where the exported ordinal is, undefined otherwise."
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "r",
+                            "name": "regular_expression"
+                        }
+                    ],
+                    "documentation": "Function returning the first index into the export_details array where the regular expression matches the exported name, undefined otherwise."
+                }
+            ]
+        },
+        {
+            "kind": "array",
+            "name": "export_details",
+            "documentation": "Array of structures containing information about the PE's exports.",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "export_details",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "offset",
+                        "documentation": "Offset where the exported function starts.",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "name",
+                        "documentation": "Name of the exported function. It will be undefined if the function has no name.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "forward_name",
+                        "documentation": "The name of the function where this export forwards to. It will be undefined if the export is not a forwarding export.",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "ordinal",
+                        "documentation": "The ordinal of the exported function, after the ordinal base has been applied to it.",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "function",
             "name": "imports",
             "return_type": "i",
             "overloads": [
@@ -1416,6 +1498,12 @@
             "name": "number_of_resources",
             "documentation": "Number of resources in the PE.",
             "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "pdb_path",
+            "documentation": "Path of the PDB file for this PE if present. Example: ```pe.pdb_path == \"D:\\workspace\\2018_R9_RelBld\target\\checkout\\custprof\\Release\\custprof.pdb\"``` ",
+            "type": "s"
         },
         {
             "kind": "array",
