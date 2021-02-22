@@ -1,0 +1,1467 @@
+{
+    "kind": "struct",
+    "name": "macho",
+    "attributes": [
+        {
+            "kind": "value",
+            "name": "MH_MAGIC",
+            "documentation": "",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "MH_CIGAM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_MAGIC_64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_CIGAM_64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "FAT_MAGIC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "FAT_CIGAM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "FAT_MAGIC_64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "FAT_CIGAM_64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_ARCH_ABI64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_LIB64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_MC680X0",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_X86",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_I386",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_X86_64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_MIPS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_MC98000",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_ARM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_ARM64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_MC88000",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_SPARC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_POWERPC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_TYPE_POWERPC64",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_INTEL_MODEL_ALL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_386",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_I386_ALL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_X86_64_ALL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_486",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_486SX",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_586",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_PENT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_PENTPRO",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_PENTII_M3",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_PENTII_M5",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_CELERON",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_CELERON_MOBILE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_PENTIUM_3",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_PENTIUM_3_M",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_PENTIUM_3_XEON",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_PENTIUM_M",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_PENTIUM_4",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_PENTIUM_4_M",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ITANIUM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ITANIUM_2",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_XEON",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_XEON_MP",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_ALL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V4T",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V6",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V5",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V5TEJ",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_XSCALE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V7",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V7F",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V7S",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V7K",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V6M",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V7M",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM_V7EM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_ARM64_ALL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_SPARC_ALL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_ALL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_MC980000_ALL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_601",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_MC98601",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_602",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_603",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_603e",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_603ev",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_604",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_604e",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_620",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_750",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_7400",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_7450",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "CPU_SUBTYPE_POWERPC_970",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_OBJECT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_EXECUTE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_FVMLIB",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_CORE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_PRELOAD",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_DYLIB",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_DYLINKER",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_BUNDLE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_DYLIB_STUB",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_DSYM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_KEXT_BUNDLE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_NOUNDEFS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_INCRLINK",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_DYLDLINK",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_BINDATLOAD",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_PREBOUND",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_SPLIT_SEGS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_LAZY_INIT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_TWOLEVEL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_FORCE_FLAT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_NOMULTIDEFS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_NOFIXPREBINDING",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_PREBINDABLE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_ALLMODSBOUND",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_SUBSECTIONS_VIA_SYMBOLS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_CANONICAL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_WEAK_DEFINES",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_BINDS_TO_WEAK",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_ALLOW_STACK_EXECUTION",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_ROOT_SAFE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_SETUID_SAFE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_NO_REEXPORTED_DYLIBS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_PIE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_DEAD_STRIPPABLE_DYLIB",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_HAS_TLV_DESCRIPTORS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_NO_HEAP_EXECUTION",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "MH_APP_EXTENSION_SAFE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SG_HIGHVM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SG_FVMLIB",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SG_NORELOC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SG_PROTECTED_VERSION_1",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_TYPE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "SECTION_ATTRIBUTES",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_REGULAR",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ZEROFILL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_CSTRING_LITERALS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_4BYTE_LITERALS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_8BYTE_LITERALS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_LITERAL_POINTERS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_NON_LAZY_SYMBOL_POINTERS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_LAZY_SYMBOL_POINTERS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_SYMBOL_STUBS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_MOD_INIT_FUNC_POINTERS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_MOD_TERM_FUNC_POINTERS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_COALESCED",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_GB_ZEROFILL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_INTERPOSING",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_16BYTE_LITERALS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_DTRACE_DOF",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_LAZY_DYLIB_SYMBOL_POINTERS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_THREAD_LOCAL_REGULAR",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_THREAD_LOCAL_ZEROFILL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_THREAD_LOCAL_VARIABLES",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_THREAD_LOCAL_VARIABLE_POINTERS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_THREAD_LOCAL_INIT_FUNCTION_POINTERS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ATTR_PURE_INSTRUCTIONS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ATTR_NO_TOC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ATTR_STRIP_STATIC_SYMS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ATTR_NO_DEAD_STRIP",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ATTR_LIVE_SUPPORT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ATTR_SELF_MODIFYING_CODE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ATTR_DEBUG",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ATTR_SOME_INSTRUCTIONS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ATTR_EXT_RELOC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "S_ATTR_LOC_RELOC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "magic",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "cputype",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "cpusubtype",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "filetype",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ncmds",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "sizeofcmds",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "flags",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "reserved",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "number_of_segments",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "segments",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "segments",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "segname",
+                        "documentation": "",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "vmaddr",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "vmsize",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "fileoff",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "fsize",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "maxprot",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "initprot",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "nsects",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "flags",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "array",
+                        "name": "sections",
+                        "documentation": "",
+                        "structure":
+                        {
+                            "kind": "struct",
+                            "name": "sections",
+                            "documentation": "",
+                            "attributes": [
+                                {
+                                    "kind": "value",
+                                    "name": "sectname",
+                                    "documentation": "",
+                                    "type": "s"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "segname",
+                                    "documentation": "",
+                                    "type": "s"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "addr",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "size",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "offset",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "align",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "reloff",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "nreloc",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "flags",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "reserved1",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "reserved2",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "reserved3",
+                                    "documentation": "",
+                                    "type": "i"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "value",
+            "name": "entry_point",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "stack_size",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "fat_magic",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "nfat_arch",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "fat_arch",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "fat_arch",
+                "documentation": "",
+                "attributes": []
+            }
+        },
+        {
+            "kind": "value",
+            "name": "cputype",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "cpusubtype",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "offset",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "size",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "align",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "file",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "file",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "magic",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "cputype",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "cpusubtype",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "filetype",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "ncmds",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "sizeofcmds",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "flags",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "reserved",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "number_of_segments",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "array",
+                        "name": "segments",
+                        "documentation": "",
+                        "structure":
+                        {
+                            "kind": "struct",
+                            "name": "segments",
+                            "documentation": "",
+                            "attributes": [
+                                {
+                                    "kind": "value",
+                                    "name": "segname",
+                                    "documentation": "",
+                                    "type": "s"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "vmaddr",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "vmsize",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "fileoff",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "fsize",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "maxprot",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "initprot",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "nsects",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "value",
+                                    "name": "flags",
+                                    "documentation": "",
+                                    "type": "i"
+                                },
+                                {
+                                    "kind": "array",
+                                    "name": "sections",
+                                    "documentation": "",
+                                    "structure":
+                                    {
+                                        "kind": "struct",
+                                        "name": "sections",
+                                        "documentation": "",
+                                        "attributes": [
+                                            {
+                                                "kind": "value",
+                                                "name": "sectname",
+                                                "documentation": "",
+                                                "type": "s"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "segname",
+                                                "documentation": "",
+                                                "type": "s"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "addr",
+                                                "documentation": "",
+                                                "type": "i"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "size",
+                                                "documentation": "",
+                                                "type": "i"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "offset",
+                                                "documentation": "",
+                                                "type": "i"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "align",
+                                                "documentation": "",
+                                                "type": "i"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "reloff",
+                                                "documentation": "",
+                                                "type": "i"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "nreloc",
+                                                "documentation": "",
+                                                "type": "i"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "flags",
+                                                "documentation": "",
+                                                "type": "i"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "reserved1",
+                                                "documentation": "",
+                                                "type": "i"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "reserved2",
+                                                "documentation": "",
+                                                "type": "i"
+                                            },
+                                            {
+                                                "kind": "value",
+                                                "name": "reserved3",
+                                                "documentation": "",
+                                                "type": "i"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "kind": "value",
+                        "name": "entry_point",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "stack_size",
+                        "documentation": "",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "function",
+            "name": "file_index_for_arch",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": ""
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": ""
+                        },
+                        {
+                            "type": "i",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": ""
+                }
+            ]
+        },
+        {
+            "kind": "function",
+            "name": "entry_point_for_arch",
+            "return_type": "i",
+            "overloads": [
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": ""
+                },
+                {
+                    "arguments": [
+                        {
+                            "type": "i",
+                            "name": ""
+                        },
+                        {
+                            "type": "i",
+                            "name": ""
+                        }
+                    ],
+                    "documentation": ""
+                }
+            ]
+        }        
+    ]
+}

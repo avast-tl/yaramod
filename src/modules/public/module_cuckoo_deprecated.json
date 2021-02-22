@@ -1,0 +1,27 @@
+{
+    "kind": "struct",
+    "name": "cuckoo",
+    "attributes": [
+        {
+            "kind": "struct",
+            "name": "signature",
+            "attributes": [
+                {
+                    "kind": "function",
+                    "name": "name",
+                    "return_type": "i",
+                    "overloads": [
+                        {
+                            "arguments": [
+                                {
+                                    "type": "r"
+                                }
+                            ],
+                            "documentation": "Deprecated function."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

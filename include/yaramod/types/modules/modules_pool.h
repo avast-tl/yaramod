@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include <iostream>
-
+#include "yaramod/modules_path.h"
 #include "yaramod/types/modules/module.h"
+
 #include <filesystem>
 
 namespace yaramod {
@@ -18,7 +18,7 @@ namespace yaramod {
  */
 class ModulesPool {
 public:
-	ModulesPool() : ModulesPool(".") {}
+	ModulesPool() : ModulesPool(YARAMOD_PUBLIC_MODULES_DIR)	{}
 	ModulesPool(const std::string& directory);
 
 	/**

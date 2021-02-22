@@ -1,0 +1,19 @@
+/**
+ * @file modules_path.h
+ * @brief Declaration of paths to yaramod module files.
+ * @copyright (c) 2017 Avast Software, licensed under the MIT license
+ */
+
+#ifndef MODULES_PATH
+#define MODULES_PATH
+
+/*
+ * These values are automatically set according to their cmake variables.
+ */
+
+#define PROJECT_BIN_DIR "${PROJECT_BINARY_DIR}"
+#define PROJECT_SRC_DIR "${PROJECT_SOURCE_DIR}"
+#define YARAMOD_PUBLIC_MODULES_DIR "${YARAMOD_PUBLIC_MODULES_DIR}"
+#define YARAMOD_PRIVATE_MODULES_DIR "${YARAMOD_PRIVATE_MODULES_DIR}"
+
+#endif /* MODULES_PATH */

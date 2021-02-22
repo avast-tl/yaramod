@@ -1,0 +1,912 @@
+{
+    "kind": "struct",
+    "name": "dex",
+    "attributes": [
+        {
+            "kind": "value",
+            "name": "DEX_FILE_MAGIC_035",
+            "documentation": "",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "DEX_FILE_MAGIC_036",
+            "documentation": "",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "DEX_FILE_MAGIC_037",
+            "documentation": "",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "DEX_FILE_MAGIC_038",
+            "documentation": "",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "DEX_FILE_MAGIC_039",
+            "documentation": "",
+            "type": "s"
+        },
+        {
+            "kind": "value",
+            "name": "ENDIAN_CONSTANT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "REVERSE_ENDIAN_CONSTANT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "NO_INDEX",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_PUBLIC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_PRIVATE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_PROTECTED",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_STATIC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_FINAL",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_SYNCHRONIZED",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_VOLATILE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_BRIDGE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_TRANSIENT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_VARARGS",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_NATIVE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_INTERFACE",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_ABSTRACT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_STRICT",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_SYNTHETIC",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_ANNOTATION",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_ENUM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_CONSTRUCTOR",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "ACC_DECLARED_SYNCHRONIZED",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_HEADER_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_STRING_ID_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_TYPE_ID_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_PROTO_ID_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_FIELD_ID_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_METHOD_ID_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_CLASS_DEF_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_CALL_SITE_ID_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_METHOD_HANDLE_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_MAP_LIST",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_TYPE_LIST",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_ANNOTATION_SET_REF_LIST",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_ANNOTATION_SET_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_CLASS_DATA_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_CODE_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_STRING_DATA_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_DEBUG_INFO_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_ANNOTATION_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_ENCODED_ARRAY_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "value",
+            "name": "TYPE_ANNOTATIONS_DIRECTORY_ITEM",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "struct",
+            "name": "header",
+            "documentation": "",
+            "attributes": [
+                {
+                    "kind": "value",
+                    "name": "magic",
+                    "documentation": "",
+                    "type": "s"
+                },
+                {
+                    "kind": "value",
+                    "name": "checksum",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "signature",
+                    "documentation": "",
+                    "type": "s"
+                },
+                {
+                    "kind": "value",
+                    "name": "file_size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "header_size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "endian_tag",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "link_size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "link_offset",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "map_offset",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "string_ids_size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "string_ids_offset",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "type_ids_size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "type_ids_offset",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "proto_ids_size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "proto_ids_offset",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "field_ids_size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "field_ids_offset",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "method_ids_size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "method_ids_offset",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "class_defs_size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "class_defs_offset",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "data_size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "value",
+                    "name": "data_offset",
+                    "documentation": "",
+                    "type": "i"
+                }
+            ]
+        },
+        {
+            "kind": "array",
+            "name": "string_ids",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "string_ids",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "offset",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "size",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "value",
+                        "documentation": "",
+                        "type": "s"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "array",
+            "name": "type_ids",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "type_ids",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "descriptor_idx",
+                        "documentation": "",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "array",
+            "name": "proto_ids",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "proto_ids",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "shorty_idx",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "return_type_idx",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "parameters_offset",
+                        "documentation": "",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "array",
+            "name": "field_ids",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "field_ids",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "class_idx",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "type_idx",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "name_idx",
+                        "documentation": "",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "array",
+            "name": "method_ids",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "method_ids",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "class_idx",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "proto_idx",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "name_idx",
+                        "documentation": "",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "array",
+            "name": "class_defs",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "class_defs",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "class_idx",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "access_flags",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "super_class_idx",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "interfaces_offset",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "source_file_idx",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "annotations_offset",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "class_data_offset",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "static_values_offset",
+                        "documentation": "",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "array",
+            "name": "class_data_item",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "class_data_item",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "static_fields_size",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "instance_fields_size",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "direct_methods_size",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "virtual_methods_size",
+                        "documentation": "",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "struct",
+            "name": "map_list",
+            "documentation": "",
+            "attributes": [
+                {
+                    "kind": "value",
+                    "name": "size",
+                    "documentation": "",
+                    "type": "i"
+                },
+                {
+                    "kind": "array",
+                    "name": "map_item",
+                    "documentation": "",
+                    "structure":
+                    {
+                        "kind": "struct",
+                        "name": "map_item",
+                        "documentation": "",
+                        "attributes": [
+                            {
+                                "kind": "value",
+                                "name": "type",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "unused",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "size",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "offset",
+                                "documentation": "",
+                                "type": "i"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "value",
+            "name": "number_of_fields",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "field",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "field",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "class_name",
+                        "documentation": "",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "name",
+                        "documentation": "",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "proto",
+                        "documentation": "",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "field_idx_diff",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "access_flags",
+                        "documentation": "",
+                        "type": "i"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "value",
+            "name": "number_of_methods",
+            "documentation": "",
+            "type": "i"
+        },
+        {
+            "kind": "array",
+            "name": "method",
+            "documentation": "",
+            "structure":
+            {
+                "kind": "struct",
+                "name": "method",
+                "documentation": "",
+                "attributes": [
+                    {
+                        "kind": "value",
+                        "name": "class_name",
+                        "documentation": "",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "name",
+                        "documentation": "",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "proto",
+                        "documentation": "",
+                        "type": "s"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "direct",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "virtual",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "method_idx_diff",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "access_flags",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "value",
+                        "name": "code_off",
+                        "documentation": "",
+                        "type": "i"
+                    },
+                    {
+                        "kind": "struct",
+                        "name": "code_item",
+                        "documentation": "",
+                        "attributes": [
+                            {
+                                "kind": "value",
+                                "name": "registers_size",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "ins_size",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "outs_size",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "tries_size",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "debug_info_off",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "insns_size",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "insns",
+                                "documentation": "",
+                                "type": "s"
+                            },
+                            {
+                                "kind": "value",
+                                "name": "padding",
+                                "documentation": "",
+                                "type": "i"
+                            },
+                            {
+                                "kind": "struct",
+                                "name": "tries",
+                                "documentation": "",
+                                "attributes": []
+                            },
+                            {
+                                "kind": "array",
+                                "name": "handlers",
+                                "documentation": "",
+                                "structure": {
+                                    "kind": "struct",
+                                    "name": "handlers",
+                                    "documentation": "",
+                                    "attributes": []
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

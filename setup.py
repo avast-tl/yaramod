@@ -183,17 +183,12 @@ setup(
     },
     ext_modules=[Extension(name='yaramod', sources=[])],
 
-    # packages=find_packages(),
-    # include_package_data=True,
-    # package_data={
-    #     '': ['module_cuckoo.json'],
-    # },
-#     data_files=[
-# #               ('bitmaps', ['bm/b1.gif', 'bm/b2.gif']),
-#         ('/opt/local/myproject/etc', ['myproject/config/settings.py', 'myproject/config/other_settings.special']),
-#         ('/opt/local/myproject/etc', [os.path.join('myproject/config', 'cool.huh')]),
-# #
-#         ('/opt/local/myproject/etc', [os.path.join('myproject/config', 'other_settings.xml')]),
-#         ('/opt/local/myproject/data', [os.path.join('myproject/words', 'word_set.txt')]),
-#     ],
+    entry_points={"console_scripts": ["yaramodpublic = src.public:main"]},
+    packages=find_packages('.'),
+    # This should include MANIFEST.in
+    include_package_data=True,
+    # This will include './data/*.json'
+    package_data={
+        "src": ["modules/*.json"],
+    },
 )

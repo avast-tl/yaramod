@@ -23,6 +23,10 @@ set(YARAMOD_SRC_DIR     "${PROJECT_SOURCE_DIR}/src")
 set(YARAMOD_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
 set(YARAMOD_SRC_BIN_DIR "${PROJECT_BINARY_DIR}/src")
 set(YARAMOD_DEPS_DIR    "${PROJECT_SOURCE_DIR}/deps")
+set(YARAMOD_PUBLIC_MODULES_DIR     "${PROJECT_SOURCE_DIR}/src/modules/public")
+set(YARAMOD_PRIVATE_MODULES_DIR     "${PROJECT_SOURCE_DIR}/src/modules/private")
+
+configure_file("${PROJECT_SOURCE_DIR}/modules_path.h.in" "${PROJECT_SOURCE_DIR}/include/yaramod/modules_path.h")
 
 # Use C++17.
 set(CMAKE_CXX_STANDARD 17)
@@ -47,5 +51,7 @@ if(YARAMOD_DOCS)
 	add_subdirectory(docs)
 endif()
 
+# Dat si pozor aby to bylo nainstalovane na spravnem miste?
 install(FILES module_cuckoo.json
 	DESTINATION YARAMOD_SRC_BIN_DIR)
+

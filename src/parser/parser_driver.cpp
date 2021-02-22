@@ -1689,11 +1689,12 @@ ParserDriver::ParserDriver()
  */
 ParserDriver::ParserDriver(const std::string& modulesDirectory)
 	: _strLiteral(), _indent(), _comment(), _regexpClass(), _parser(), _sectionStrings(false),
-	_escapedContent(false), _mode(ParserMode::Regular), _modules(modulesDirectory),
+	_escapedContent(false), _mode(ParserMode::Regular), _modules(),
 	_fileContexts(), _comments(), _includedFiles(), _includedFilesCache(), _valid(false),
 	_file(), _currentStrings(), _stringLoop(false), _localSymbols(), _lastRuleLocation(),
 	_lastRuleTokenStream(), _anonStringCounter(0)
 {
+	std::cerr << "Unused modulesDirectory=" << modulesDirectory << std::endl;
 	initialize();
 }
 

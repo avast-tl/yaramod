@@ -39,12 +39,9 @@ bool ModulesPool::_addModule(std::filesystem::path p)
 ModulesPool::ModulesPool(const std::string& directory)
 {
 	bool found_modules = false;
-	if (const char* env_p = std::getenv("HOME"))
-		std::cout << "Your HOME is: " << env_p << '\n';
 
 	if (const char* env_p = std::getenv("YARAMOD_MODULE_SPEC_PATH"))
 	{
-		std::cout << "Your YARAMOD_MODULE_SPEC_PATH is: " << env_p << '\n';
 		std::stringstream paths;
 		paths << env_p;
 		for (std::string path; std::getline(paths, path, ':'); )
